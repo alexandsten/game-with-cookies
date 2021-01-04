@@ -33,6 +33,8 @@ totalPoints = document.getElementById("totPoints");
 }
 //==============================//
 
+window.addEventListener("load",init); 		// Se till att init aktiveras då sidan är inladdad
+
 //======= start game =========//
 //Funktion som ** 
 
