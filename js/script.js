@@ -57,4 +57,28 @@ function addBricks() {
 
 //=========================//
 
+//======= drag start brick =====//
 
+function dragStartBrick() {
+
+}
+
+// ==========================//
+
+
+//======= drag end brick =====//
+
+function dragEndBrick() {
+
+}
+
+// ==========================//
+
+// ======== bricka över tom bricka ======//
+
+function brickOverEmpty() {
+
+}
+
+
+//==============================//
