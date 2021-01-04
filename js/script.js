@@ -37,7 +37,11 @@ window.addEventListener("load",init); 		// Se till att init aktiveras då sidan 
 
 //======= start game =========//
 //Funktion som ** 
+function startGame() {
+    newGameBtn.disabled = true;
+    newBricksBtn.disabled = false;
 
+}
 
 //===========================//
 
