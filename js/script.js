@@ -5,6 +5,8 @@ const allBricks
 brickElem   //bricka som flyttas, kan byta class mellan front och back
 brickHolder   //där fyra nya brickor visas
 
+dragBrickElem //den brickan som blir dragen
+
 gameBoard   //planen där alla brickor ska placeras
 
 markElem    //markerar om raden är korrekt
