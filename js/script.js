@@ -3,6 +3,7 @@
 const allBricks 
 
 brickElem   //bricka som flyttas, kan byta class mellan front och back
+newBricks    //där fyra nya brickor visas
 
 gameBoard   //planen där alla brickor ska placeras
 
