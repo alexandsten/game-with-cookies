@@ -30,6 +30,9 @@ brickHolder = document.getElementById("newBricks");
 
 numberGames = document.getElementById("countGames");
 totalPoints = document.getElementById("totPoints");
+
+newGameBtn.addEventListener("click",startGame);
+newBricksBtn.addEventListener("click",startGame);
 }
 //==============================//
 
@@ -38,9 +41,9 @@ window.addEventListener("load",init); 		// Se till att init aktiveras då sidan 
 //======= start game =========//
 //Funktion som ** 
 function startGame() {
+    alert("Hello! I am an alert box!!");
     newGameBtn.disabled = true;
     newBricksBtn.disabled = false;
-
 }
 
 //===========================//
