@@ -14,13 +14,24 @@ markElem    //markerar om raden är korrekt
 newGameBtn      //knapp för nytt spel
 newBricksBtn    //knapp för nya brickor
 
+numberGames     //antal spel
 correctRows    //korrekta antalet rader detta spel
 totalPoints     //det totala antalet poäng, sparas med hjälp av cookies
 
 
 //========== Init ===============//
 
+function init() {
 
+newGameBtn = document.getElementById("newGameBtn");
+newBricksBtn  = document.getElementById("newBricksBtn");
+
+brickHolder = document.getElementById("newBricks");
+
+numberGames = document.getElementById("countGames");
+correctRows
+totalPoints
+}
 //==============================//
 
 //======= start game =========//
