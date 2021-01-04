@@ -13,4 +13,18 @@ newGameBtn      //knapp för nytt spel
 newBricksBtn    //knapp för nya brickor
 
 correctRows    //korrekta antalet rader detta spel
-totalPoints //det totala antalet poäng, sparas med hjälp av cookies
+totalPoints     //det totala antalet poäng, sparas med hjälp av cookies
+
+
+//========== Init ===============//
+
+
+//==============================//
+
+//======= start game =========//
+//Funktion som ** 
+
+
+//===========================//
+
+
