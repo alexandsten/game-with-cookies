@@ -1,21 +1,21 @@
 // Globala konstanter och variabler
 //array för 1-40 brickor
-const allBricks 
+/* const allBricks; */
 
-brickElem   //bricka som flyttas, kan byta class mellan front och back
+var brickElem;   //bricka som flyttas, kan byta class mellan front och back
 
-dragBrickElem //den brickan som blir dragen
+var dragBrickElem; //den brickan som blir dragen
 
-brickHolder   //där fyra nya brickor visas
-gameBoard   //planen där alla brickor ska placeras
+var brickHolder ;  //där fyra nya brickor visas
+var gameBoard;   //planen där alla brickor ska placeras
 
-markElem    //markerar om raden är korrekt
+var markElem;    //markerar om raden är korrekt
 
-newGameBtn      //knapp för nytt spel
-newBricksBtn    //knapp för nya brickor
+var newGameBtn;      //knapp för nytt spel
+var newBricksBtn;    //knapp för nya brickor
 
-numberGames     //antal spel
-totalPoints     //det totala antalet poäng, sparas med hjälp av cookies
+var numberGames;     //antal spel
+var totalPoints;     //det totala antalet poäng, sparas med hjälp av cookies
 
 
 //========== Init ===============//
