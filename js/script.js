@@ -32,7 +32,7 @@ numberGames = document.getElementById("countGames");
 totalPoints = document.getElementById("totPoints");
 
 newGameBtn.addEventListener("click",startGame);
-newBricksBtn.addEventListener("click",startGame);
+newBricksBtn.addEventListener("click",addBricks);
 }
 //==============================//
 
@@ -50,6 +50,9 @@ function startGame() {
 
 //======= newBricks ========//
 
+function addBricks() {
+    alert("Hello! I am an alert box!!");
+}
 
 
 //=========================//
