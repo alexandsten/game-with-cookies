@@ -3,7 +3,7 @@
 const allBricks 
 
 brickElem   //bricka som flyttas, kan byta class mellan front och back
-newBricks    //där fyra nya brickor visas
+brickHolder   //där fyra nya brickor visas
 
 gameBoard   //planen där alla brickor ska placeras
 
@@ -26,5 +26,11 @@ totalPoints     //det totala antalet poäng, sparas med hjälp av cookies
 
 
 //===========================//
+
+//======= newBricks ========//
+
+
+
+//=========================//
 
 
