@@ -52,6 +52,8 @@ function startGame() {
 
 function addBricks() {
     alert("Hello! I am an alert box!!");
+    //här måste jag få fram 4 front brickor med varsit nummer från arrayen
+
 }
 
 
@@ -82,3 +84,11 @@ function brickOverEmpty() {
 
 
 //==============================//
+
+
+// ======== end game ==========//
+
+function endGame() {
+
+}
+//=============================//
