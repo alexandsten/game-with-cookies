@@ -74,6 +74,10 @@ function addBricks() {
 
 function dragStartBrick() {
     totalPoints.innerHTML = "dragstart";
+    for (let i = 0; i < gameBoard.length; i++) {
+		gameBoard[i].addEventListener("dragover",brickOverEmpty);
+		gameBoard[i].addEventListener("drop",brickOverEmpty);
+	}
 }
 
 // ==========================//
@@ -82,10 +86,7 @@ function dragStartBrick() {
 //======= drag end brick =====//
 
 function dragEndBrick() {
-    for (let i = 0; i < gameBoard.length; i++) {   
-        totalPoints.innerHTML = "spelplan";
-        gameBoard[i].src = "img/2.png";
-        }
+
 }
 
 // ==========================//
@@ -93,7 +94,10 @@ function dragEndBrick() {
 // ======== bricka över tom bricka ======//
 
 function brickOverEmpty() {
-
+    for (let i = 0; i < gameBoard.length; i++) {   
+        totalPoints.innerHTML = "spelplan";
+        gameBoard[i].src = "img/2.png";
+        }
 }
 
 
