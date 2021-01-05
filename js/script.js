@@ -42,7 +42,7 @@ window.addEventListener("load",init); 		// Se till att init aktiveras då sidan 
 //======= start game =========//
 //Funktion som ** 
 function startGame() {
-    alert("Hello! I am an alert box!!");
+    totalPoints.innerHTML = "spel startas";
     newGameBtn.disabled = true;
     newBricksBtn.disabled = false;
 }
@@ -55,7 +55,7 @@ function addBricks() {
    //här måste jag få fram 4 front brickor med varsit nummer från arrayen
 
     for (let i = 0; i < brickHolder.length; i++) {   
-    alert("Hello! I am an alert box!!");
+    totalPoints.innerHTML = "nya brickor";
     brickHolder[i].draggable = true;
     brickHolder[i].src = "img/2.png";
     brickHolder[i].addEventListener("dragstart",dragStartBrick);
@@ -69,7 +69,7 @@ function addBricks() {
 //======= drag start brick =====//
 
 function dragStartBrick() {
-    alert("dragstart");
+    totalPoints.innerHTML = "dragstart";
 }
 
 // ==========================//
@@ -78,7 +78,7 @@ function dragStartBrick() {
 //======= drag end brick =====//
 
 function dragEndBrick() {
-    alert("dragend");
+    totalPoints.innerHTML = "dragend";
 }
 
 // ==========================//
