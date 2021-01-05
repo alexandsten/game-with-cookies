@@ -26,7 +26,8 @@ newGameBtn = document.getElementById("newGameBtn");
 newBricksBtn  = document.getElementById("newBricksBtn");
 
 gameBoard = document.getElementById("board");
-brickHolder = document.getElementById("newBricks");
+brickHolder = document.getElementById("newBricks").
+getElementsByClassName("empty");
 
 numberGames = document.getElementById("countGames");
 totalPoints = document.getElementById("totPoints");
@@ -53,7 +54,8 @@ function startGame() {
 function addBricks() {
     alert("Hello! I am an alert box!!");
     //här måste jag få fram 4 front brickor med varsit nummer från arrayen
-
+    
+    emptyBrick.src = "img/3.png"
 }
 
 
