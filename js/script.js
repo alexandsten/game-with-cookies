@@ -69,7 +69,7 @@ function addBricks() {
 //======= drag start brick =====//
 
 function dragStartBrick() {
-    alert("Hello! I am an alert box!!");
+    alert("dragstart");
 }
 
 // ==========================//
@@ -78,7 +78,7 @@ function dragStartBrick() {
 //======= drag end brick =====//
 
 function dragEndBrick() {
-    alert("Hello! I am an alert box!!");
+    alert("dragend");
 }
 
 // ==========================//
