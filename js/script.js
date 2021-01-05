@@ -56,7 +56,10 @@ function addBricks() {
 
     for (let i = 0; i < brickHolder.length; i++) {   
     alert("Hello! I am an alert box!!");
+    brickHolder[i].draggable = true;
     brickHolder[i].src = "img/2.png";
+    brickHolder[i].addEventListener("dragstart",dragStartBrick);
+    brickHolder[i].addEventListener("dragend",dragEndBrick);
     }
 }
 
@@ -66,7 +69,7 @@ function addBricks() {
 //======= drag start brick =====//
 
 function dragStartBrick() {
-
+    alert("Hello! I am an alert box!!");
 }
 
 // ==========================//
@@ -75,7 +78,7 @@ function dragStartBrick() {
 //======= drag end brick =====//
 
 function dragEndBrick() {
-
+    alert("Hello! I am an alert box!!");
 }
 
 // ==========================//
