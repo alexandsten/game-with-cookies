@@ -54,9 +54,9 @@ function startGame() {
 function addBricks() {  
    //här måste jag få fram 4 front brickor med varsit nummer från arrayen
 
-    for (let i = 0; i < brickHolder.length; i++) {
-   /*  brickHolder[i].src = "img/2.png"; */
+    for (let i = 0; i < brickHolder.length; i++) {   
     alert("Hello! I am an alert box!!");
+    brickHolder[i].src = "img/2.png";
     }
 }
 
