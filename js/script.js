@@ -27,7 +27,7 @@ newBricksBtn  = document.getElementById("newBricksBtn");
 
 gameBoard = document.getElementById("board");
 brickHolder = document.getElementById("newBricks").
-getElementsByClassName("empty");
+getElementsByTagName("ny bricka");
 
 numberGames = document.getElementById("countGames");
 totalPoints = document.getElementById("totPoints");
