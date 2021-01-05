@@ -25,7 +25,10 @@ function init() {
 newGameBtn = document.getElementById("newGameBtn");
 newBricksBtn  = document.getElementById("newBricksBtn");
 
-gameBoard = document.getElementById("board");
+gameBoard = document.getElementById("board").
+getElementsByTagName("img");
+
+
 brickHolder = document.getElementById("newBricks").
 getElementsByClassName("empty");
 
@@ -61,6 +64,7 @@ function addBricks() {
     brickHolder[i].addEventListener("dragstart",dragStartBrick);
     brickHolder[i].addEventListener("dragend",dragEndBrick);
     }
+   
 }
 
 
@@ -78,7 +82,10 @@ function dragStartBrick() {
 //======= drag end brick =====//
 
 function dragEndBrick() {
-    totalPoints.innerHTML = "dragend";
+    for (let i = 0; i < gameBoard.length; i++) {   
+        totalPoints.innerHTML = "spelplan";
+        gameBoard[i].src = "img/2.png";
+        }
 }
 
 // ==========================//
