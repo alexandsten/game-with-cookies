@@ -6,7 +6,7 @@ var brickElem;   //bricka som flyttas, kan byta class mellan front och back
 
 var dragBrickElem; //den brickan som blir dragen
 
-var brickHolder ;  //där fyra nya brickor visas
+var brickHolder;  //där fyra nya brickor visas
 var gameBoard;   //planen där alla brickor ska placeras
 
 var markElem;    //markerar om raden är korrekt
@@ -27,7 +27,7 @@ newBricksBtn  = document.getElementById("newBricksBtn");
 
 gameBoard = document.getElementById("board");
 brickHolder = document.getElementById("newBricks").
-getElementsByTagName("ny bricka");
+getElementsByClassName("empty");
 
 numberGames = document.getElementById("countGames");
 totalPoints = document.getElementById("totPoints");
@@ -51,11 +51,13 @@ function startGame() {
 
 //======= newBricks ========//
 
-function addBricks() {
+function addBricks() {  
+   //här måste jag få fram 4 front brickor med varsit nummer från arrayen
+
+    for (let i = 0; i < brickHolder.length; i++) {
+   /*  brickHolder[i].src = "img/2.png"; */
     alert("Hello! I am an alert box!!");
-    //här måste jag få fram 4 front brickor med varsit nummer från arrayen
-    
-    emptyBrick.src = "img/3.png"
+    }
 }
 
 
