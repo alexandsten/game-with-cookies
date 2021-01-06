@@ -65,6 +65,7 @@ function addBricks() {
     brickHolder[i].src = "img/" + r + ".png";
     brickHolder[i].addEventListener("dragstart",dragStartBrick);
     brickHolder[i].addEventListener("dragend",dragEndBrick);
+    // ändra class också
     numberList.splice(r,1);
     }
 }
