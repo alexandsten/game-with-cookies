@@ -1,6 +1,6 @@
 // Globala konstanter och variabler
 //array för 1-40 brickor
-const allBricks = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]; 
+const allBricks = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"]; 
 
 var brickElem;   //bricka som flyttas, kan byta class mellan front och back
 
@@ -61,14 +61,14 @@ function startGame() {
 function addBricks() {  
    //här måste jag få fram 4 front brickor med varsit nummer från arrayen
 
-    for (let i = 0; i < numberList.length; i++) {   
+    for (let i = 0; i < brickHolder.length; i++) {   
     totalPoints.innerHTML = "nya brickor";
     var r = Math.floor(numberList.length * Math.random())+1;
     brickHolder[i].draggable = true;
     brickHolder[i].src = "img/" + r + ".png";
     brickHolder[i].addEventListener("dragstart",dragStartBrick);
     brickHolder[i].addEventListener("dragend",dragEndBrick);
-    numberList.splice(r,-1);
+    numberList.splice(r,1);
     }
    
 }
