@@ -1,6 +1,6 @@
 // Globala konstanter och variabler
 //array för 1-40 brickor
-const allBricks = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"]; 
+const allBricks = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", " 37","38", "39", "40"]; 
 
 var brickElem;   //bricka som flyttas, kan byta class mellan front och back
 
@@ -80,6 +80,7 @@ function dragStartBrick(e) {
 		gameBoard[i].addEventListener("dragover",brickOverEmpty);
         gameBoard[i].addEventListener("drop",brickOverEmpty);
         gameBoard[i].addEventListener("dragleave",brickLeaveEmpty);
+        e.dataTransfer.setData("text",this.innerHTML);
     }
     e.dataTransfer.setData("text",this.innerHTML);
 }
@@ -99,13 +100,13 @@ function dragEndBrick(e) {
 
 function brickOverEmpty(e) {
     e.preventDefault();
+   
     this.style.backgroundColor = "#CCC"; 
     if (e.type == "drop") {
         this.style.backgroundColor = "#4287f5";
         this.innerHTML = e.dataTransfer.getData("text");
     }
 
-    this.innerHTML = e.dataTransfer.getData("text");
     /* for (let i = 0; i < gameBoard.length; i++) {   
         totalPoints.innerHTML = "spelplan";
         ";
