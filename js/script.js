@@ -96,9 +96,9 @@ function dragEndBrick(e) {
 
 function brickOverEmpty(e) {
     e.preventDefault();
-    this.style.backgroundColor = "#CCC";
+   this.style.backgroundColor = "#CCC"; 
     if (e.type == "drop") {
-        gameBoard[i].src = "img/2.png";
+        this.style.backgroundColor = "#4287f5";
     }
 
     
