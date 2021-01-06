@@ -1,6 +1,6 @@
 // Globala konstanter och variabler
 //array för 1-40 brickor
-/* const allBricks; */
+const allBricks = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]; 
 
 var brickElem;   //bricka som flyttas, kan byta class mellan front och back
 
@@ -96,7 +96,7 @@ function dragEndBrick(e) {
 
 function brickOverEmpty(e) {
     e.preventDefault();
-   this.style.backgroundColor = "#CCC"; 
+    this.style.backgroundColor = "#CCC"; 
     if (e.type == "drop") {
         this.style.backgroundColor = "#4287f5";
     }
