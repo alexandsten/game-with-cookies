@@ -76,7 +76,8 @@ function dragStartBrick() {
     totalPoints.innerHTML = "dragstart";
     for (let i = 0; i < gameBoard.length; i++) {
 		gameBoard[i].addEventListener("dragover",brickOverEmpty);
-		gameBoard[i].addEventListener("drop",brickOverEmpty);
+        gameBoard[i].addEventListener("drop",brickOverEmpty);
+        gameBoard[i].addEventListener("dragleave",brickLeaveEmpty);
 	}
 }
 
@@ -95,6 +96,8 @@ function dragEndBrick() {
 
 function brickOverEmpty() {
     this.style.backgroundColor = "#CCC";
+
+    
     /* for (let i = 0; i < gameBoard.length; i++) {   
         totalPoints.innerHTML = "spelplan";
         gameBoard[i].src = "img/2.png";
@@ -103,6 +106,12 @@ function brickOverEmpty() {
 
 
 //==============================//
+
+//========== brick leave empty =====//
+
+function brickLeaveEmpty() {
+    this.style.backgroundColor = "";
+}
 
 
 // ======== end game ==========//
