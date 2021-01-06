@@ -94,10 +94,11 @@ function dragEndBrick() {
 // ======== bricka över tom bricka ======//
 
 function brickOverEmpty() {
-    for (let i = 0; i < gameBoard.length; i++) {   
+    this.style.backgroundColor = "#CCC";
+    /* for (let i = 0; i < gameBoard.length; i++) {   
         totalPoints.innerHTML = "spelplan";
         gameBoard[i].src = "img/2.png";
-        }
+        } */
 }
 
 
