@@ -102,6 +102,7 @@ function brickOverEmpty(e) {
     this.style.backgroundColor = "#CCC"; 
     if (e.type == "drop") {
         this.style.backgroundColor = "#4287f5";
+        this.innerHTML = e.dataTransfer.getData("text");
     }
 
     this.innerHTML = e.dataTransfer.getData("text");
