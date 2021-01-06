@@ -39,8 +39,6 @@ totalPoints = document.getElementById("totPoints");
 
 newGameBtn.addEventListener("click",startGame);
 newBricksBtn.addEventListener("click",addBricks);
-
-numberList = allBricks.slice(0);
 }
 //==============================//
 
@@ -52,6 +50,7 @@ function startGame() {
     totalPoints.innerHTML = "spel startas";
     newGameBtn.disabled = true;
     newBricksBtn.disabled = false;
+    numberList = allBricks.slice(0);
 }
 
 //===========================//
@@ -60,9 +59,7 @@ function startGame() {
 
 function addBricks() {  
    //här måste jag få fram 4 front brickor med varsit nummer från arrayen
-
     for (let i = 0; i < brickHolder.length; i++) {   
-    totalPoints.innerHTML = "nya brickor";
     var r = Math.floor(numberList.length * Math.random())+1;
     brickHolder[i].draggable = true;
     brickHolder[i].src = "img/" + r + ".png";
@@ -70,7 +67,6 @@ function addBricks() {
     brickHolder[i].addEventListener("dragend",dragEndBrick);
     numberList.splice(r,1);
     }
-   
 }
 
 
