@@ -59,8 +59,9 @@ function addBricks() {
 
     for (let i = 0; i < brickHolder.length; i++) {   
     totalPoints.innerHTML = "nya brickor";
+    var r = Math.floor(allBricks.length * Math.random())+1;
     brickHolder[i].draggable = true;
-    brickHolder[i].src = "img/2.png";
+    brickHolder[i].src = "img/" + r + ".png";
     brickHolder[i].addEventListener("dragstart",dragStartBrick);
     brickHolder[i].addEventListener("dragend",dragEndBrick);
     }
