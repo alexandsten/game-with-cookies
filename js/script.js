@@ -72,7 +72,7 @@ function addBricks() {
 
 //======= drag start brick =====//
 
-function dragStartBrick() {
+function dragStartBrick(e) {
     totalPoints.innerHTML = "dragstart";
     for (let i = 0; i < gameBoard.length; i++) {
 		gameBoard[i].addEventListener("dragover",brickOverEmpty);
@@ -86,7 +86,7 @@ function dragStartBrick() {
 
 //======= drag end brick =====//
 
-function dragEndBrick() {
+function dragEndBrick(e) {
 
 }
 
@@ -94,13 +94,17 @@ function dragEndBrick() {
 
 // ======== bricka över tom bricka ======//
 
-function brickOverEmpty() {
+function brickOverEmpty(e) {
+    e.preventDefault();
     this.style.backgroundColor = "#CCC";
+    if (e.type == "drop") {
+        gameBoard[i].src = "img/2.png";
+    }
 
     
     /* for (let i = 0; i < gameBoard.length; i++) {   
         totalPoints.innerHTML = "spelplan";
-        gameBoard[i].src = "img/2.png";
+        ";
         } */
 }
 
@@ -109,7 +113,7 @@ function brickOverEmpty() {
 
 //========== brick leave empty =====//
 
-function brickLeaveEmpty() {
+function brickLeaveEmpty(e) {
     this.style.backgroundColor = "";
 }
 
