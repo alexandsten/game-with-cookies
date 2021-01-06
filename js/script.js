@@ -17,7 +17,7 @@ var newBricksBtn;    //knapp för nya brickor
 var numberGames;     //antal spel
 var totalPoints;     //det totala antalet poäng, sparas med hjälp av cookies
 
-var numberList;
+var numberList;     //alla bricknummer kopieras till denna array
 
 
 //========== Init ===============//
