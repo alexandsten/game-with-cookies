@@ -79,7 +79,8 @@ function dragStartBrick(e) {
 		gameBoard[i].addEventListener("dragover",brickOverEmpty);
         gameBoard[i].addEventListener("drop",brickOverEmpty);
         gameBoard[i].addEventListener("dragleave",brickLeaveEmpty);
-	}
+    }
+    e.dataTransfer.setData("text",this.innerHTML);
 }
 
 // ==========================//
@@ -102,7 +103,7 @@ function brickOverEmpty(e) {
         this.style.backgroundColor = "#4287f5";
     }
 
-    
+    this.innerHTML = e.dataTransfer.getData("text");
     /* for (let i = 0; i < gameBoard.length; i++) {   
         totalPoints.innerHTML = "spelplan";
         ";
