@@ -17,6 +17,8 @@ var newBricksBtn;    //knapp för nya brickor
 var numberGames;     //antal spel
 var totalPoints;     //det totala antalet poäng, sparas med hjälp av cookies
 
+var numberList;
+
 
 //========== Init ===============//
 
@@ -37,6 +39,8 @@ totalPoints = document.getElementById("totPoints");
 
 newGameBtn.addEventListener("click",startGame);
 newBricksBtn.addEventListener("click",addBricks);
+
+numberList = allBricks.slice(0);
 }
 //==============================//
 
@@ -57,13 +61,14 @@ function startGame() {
 function addBricks() {  
    //här måste jag få fram 4 front brickor med varsit nummer från arrayen
 
-    for (let i = 0; i < brickHolder.length; i++) {   
+    for (let i = 0; i < numberList.length; i++) {   
     totalPoints.innerHTML = "nya brickor";
-    var r = Math.floor(allBricks.length * Math.random())+1;
+    var r = Math.floor(numberList.length * Math.random())+1;
     brickHolder[i].draggable = true;
     brickHolder[i].src = "img/" + r + ".png";
     brickHolder[i].addEventListener("dragstart",dragStartBrick);
     brickHolder[i].addEventListener("dragend",dragEndBrick);
+    numberList.splice(r,-1);
     }
    
 }
