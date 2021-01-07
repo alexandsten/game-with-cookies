@@ -19,6 +19,8 @@ var totalPoints;     //det totala antalet poäng, sparas med hjälp av cookies
 
 var numberList;     //alla bricknummer kopieras till denna array
 
+var ix;
+
 
 //========== Init ===============//
 
@@ -39,6 +41,8 @@ totalPoints = document.getElementById("totPoints");
 
 newGameBtn.addEventListener("click",startGame);
 newBricksBtn.addEventListener("click",addBricks);
+
+newBricksBtn.disabled = true;
 }
 //==============================//
 
@@ -47,7 +51,6 @@ window.addEventListener("load",init); 		// Se till att init aktiveras då sidan 
 //======= start game =========//
 //Funktion som ** 
 function startGame() {
-    totalPoints.innerHTML = "spel startas";
     newGameBtn.disabled = true;
     newBricksBtn.disabled = false;
     numberList = allBricks.slice(0);
@@ -67,6 +70,7 @@ function addBricks() {
     brickHolder[i].addEventListener("dragend",dragEndBrick);
     // ändra class också
     numberList.splice(r,1);
+    ix = i;
     }
 }
 
@@ -76,15 +80,12 @@ function addBricks() {
 //======= drag start brick =====//
 
 function dragStartBrick(e) {
-    totalPoints.innerHTML = "dragstart";
     for (let i = 0; i < gameBoard.length; i++) {
 		gameBoard[i].addEventListener("dragover",brickOverEmpty);
         gameBoard[i].addEventListener("drop",brickOverEmpty);
         gameBoard[i].addEventListener("dragleave",brickLeaveEmpty);
-        e.dataTransfer.setData("text",this.innerHTML);
+        e.dataTransfer.setData("text",this.src);
     }
-    
-    e.dataTransfer.setData("text",this.src);
 }
 
 // ==========================//
@@ -102,19 +103,14 @@ function dragEndBrick(e) {
 
 function brickOverEmpty(e) {
     e.preventDefault();
-   
     this.style.backgroundColor = "#CCC"; 
     if (e.type == "drop") {
         this.classList.add("brickFront");
-        this.classList.remove("empty");
-        this.src = e.dataTransfer.getData("text");
+      /*  this.classList.remove("empty"); */
+       this.src = e.dataTransfer.getData("text"); 
+      /*  this.src = "img/" + e + ".png"; */
         this.style.backgroundColor = "";
     }
-
-    /* for (let i = 0; i < gameBoard.length; i++) {   
-        totalPoints.innerHTML = "spelplan";
-        ";
-        } */
 }
 
 
