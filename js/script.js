@@ -83,7 +83,7 @@ function dragStartBrick(e) {
         gameBoard[i].addEventListener("dragleave",brickLeaveEmpty);
         e.dataTransfer.setData("text",this.innerHTML);
     }
-    e.dataTransfer.setData("text",this.innerHTML);
+    e.dataTransfer.setData("text",this.src);
 }
 
 // ==========================//
@@ -104,8 +104,9 @@ function brickOverEmpty(e) {
    
     this.style.backgroundColor = "#CCC"; 
     if (e.type == "drop") {
-        this.style.backgroundColor = "#4287f5";
-        this.innerHTML = e.dataTransfer.getData("text");
+        this.classList.add("brickFront");
+        this.classList.toggle("empty");
+        this.src = e.dataTransfer.getData("text");
     }
 
     /* for (let i = 0; i < gameBoard.length; i++) {   
