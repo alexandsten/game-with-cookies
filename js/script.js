@@ -33,8 +33,9 @@ gameBoard = document.getElementById("board").
 getElementsByTagName("img");
 
 
+
 brickHolder = document.getElementById("newBricks").
-getElementsByClassName("empty");
+getElementsByTagName("img");
 
 numberGames = document.getElementById("countGames");
 totalPoints = document.getElementById("totPoints");
@@ -54,6 +55,14 @@ function startGame() {
     newGameBtn.disabled = true;
     newBricksBtn.disabled = false;
     numberList = allBricks.slice(0);
+
+
+    for (let i = 0; i < brickHolder.length; i++)
+    brickHolder[i].classList.add("brickEmpty");
+
+
+for (let i = 0; i < gameBoard.length; i++)
+    gameBoard[i].classList.add("brickEmpty");
 }
 
 //===========================//
@@ -68,6 +77,8 @@ function addBricks() {
     brickHolder[i].src = "img/" + r + ".png";
     brickHolder[i].addEventListener("dragstart",dragStartBrick);
     brickHolder[i].addEventListener("dragend",dragEndBrick);
+    brickHolder[i].classList.add("brickFront");
+    brickHolder[i].classList.remove("brickEmpty");
     // ändra class också
     numberList.splice(r,1);
     ix = i;
@@ -106,7 +117,7 @@ function brickOverEmpty(e) {
     this.style.backgroundColor = "#CCC"; 
     if (e.type == "drop") {
         this.classList.add("brickFront");
-      /*  this.classList.remove("empty"); */
+        this.classList.remove("brickEmpty");
        this.src = e.dataTransfer.getData("text"); 
       /*  this.src = "img/" + e + ".png"; */
         this.style.backgroundColor = "";
