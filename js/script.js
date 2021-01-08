@@ -124,6 +124,7 @@ function brickOverEmpty(e) {
         dragBrickElem.src = "img/empty.png"
         dragBrickElem.classList.remove("brickFront");
         dragBrickElem.classList.add("empty");
+        dragBrickElem.classList.remove("brick");
     }
 }
 //==============================//
