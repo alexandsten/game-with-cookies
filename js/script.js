@@ -19,8 +19,6 @@ var totalPoints;     //det totala antalet poäng, sparas med hjälp av cookies
 
 var numberList;     //alla bricknummer kopieras till denna array
 
-var ix;
-
 
 //========== Init ===============//
 
@@ -31,8 +29,6 @@ newBricksBtn  = document.getElementById("newBricksBtn");
 
 gameBoard = document.getElementById("board").
 getElementsByTagName("img");
-
-
 
 brickHolder = document.getElementById("newBricks").
 getElementsByTagName("img");
@@ -56,12 +52,12 @@ function startGame() {
     newBricksBtn.disabled = false;
     numberList = allBricks.slice(0);
 
-
+//empty brick för brickholder - new bricks
     for (let i = 0; i < brickHolder.length; i++)
     brickHolder[i].classList.add("brickEmpty");
 
-
-for (let i = 0; i < gameBoard.length; i++)
+// empty brick för gameboard
+    for (let i = 0; i < gameBoard.length; i++)
     gameBoard[i].classList.add("brickEmpty");
 }
 
@@ -79,13 +75,9 @@ function addBricks() {
     brickHolder[i].addEventListener("dragend",dragEndBrick);
     brickHolder[i].classList.add("brickFront");
     brickHolder[i].classList.remove("brickEmpty");
-    // ändra class också
     numberList.splice(r,1);
-    ix = i;
     }
 }
-
-
 //=========================//
 
 //======= drag start brick =====//
@@ -105,7 +97,6 @@ function dragStartBrick(e) {
 //======= drag end brick =====//
 
 function dragEndBrick(e) {
-
 }
 
 // ==========================//
@@ -114,17 +105,18 @@ function dragEndBrick(e) {
 
 function brickOverEmpty(e) {
     e.preventDefault();
-    this.style.backgroundColor = "#CCC"; 
-    if (e.type == "drop") {
+    this.style.backgroundColor = "#CCC";  
+    /* if (this.getAttribute('class') === 'brickFront' ) {
+        break;
+    } */
+     if (e.type == "drop") {
         this.classList.add("brickFront");
         this.classList.remove("brickEmpty");
-       this.src = e.dataTransfer.getData("text"); 
+        this.src = e.dataTransfer.getData("text"); 
       /*  this.src = "img/" + e + ".png"; */
         this.style.backgroundColor = "";
     }
 }
-
-
 //==============================//
 
 //========== brick leave empty =====//
@@ -132,7 +124,6 @@ function brickOverEmpty(e) {
 function brickLeaveEmpty(e) {
     this.style.backgroundColor = "";
 }
-
 
 // ======== end game ==========//
 
