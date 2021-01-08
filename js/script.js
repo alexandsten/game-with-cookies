@@ -28,10 +28,10 @@ newGameBtn = document.getElementById("newGameBtn");
 newBricksBtn  = document.getElementById("newBricksBtn");
 
 gameBoard = document.getElementById("board").
-getElementsByTagName("img");
+getElementsByClassName("empty");
 
 brickHolder = document.getElementById("newBricks").
-getElementsByTagName("img");
+getElementsByClassName("empty");
 
 numberGames = document.getElementById("countGames");
 totalPoints = document.getElementById("totPoints");
@@ -51,14 +51,6 @@ function startGame() {
     newGameBtn.disabled = true;
     newBricksBtn.disabled = false;
     numberList = allBricks.slice(0);
-
-//empty brick för brickholder - new bricks
-    for (let i = 0; i < brickHolder.length; i++)
-    brickHolder[i].classList.add("brickEmpty");
-
-// empty brick för gameboard
-    for (let i = 0; i < gameBoard.length; i++)
-    gameBoard[i].classList.add("brickEmpty");
 }
 
 //===========================//
@@ -73,9 +65,19 @@ function addBricks() {
     brickHolder[i].src = "img/" + r + ".png";
     brickHolder[i].addEventListener("dragstart",dragStartBrick);
     brickHolder[i].addEventListener("dragend",dragEndBrick);
+    brickHolder[i].classList.add("brick");
     brickHolder[i].classList.add("brickFront");
-    brickHolder[i].classList.remove("brickEmpty");
-    numberList.splice(r,1);
+ /* brickHolder[i].classList.remove("empty"); */
+    numberList.splice(r,1); 
+    }
+    for (let i = 0; i < brickHolder.length; i++) {
+        brickHolder[i].classList.remove("empty");
+    }
+    for (let i = 0; i < brickHolder.length; i++) {
+        brickHolder[i].classList.remove("empty");
+    }
+    for (let i = 0; i < brickHolder.length; i++) {
+        brickHolder[i].classList.remove("empty");
     }
 }
 //=========================//
@@ -88,7 +90,10 @@ function dragStartBrick(e) {
         gameBoard[i].addEventListener("drop",brickOverEmpty);
         gameBoard[i].addEventListener("dragleave",brickLeaveEmpty);
         e.dataTransfer.setData("text",this.src);
+   /*   this.classList.remove("empty"); */
+        dragBrickElem = this;
     }
+    
 }
 
 // ==========================//
@@ -111,10 +116,14 @@ function brickOverEmpty(e) {
     } */
      if (e.type == "drop") {
         this.classList.add("brickFront");
-        this.classList.remove("brickEmpty");
+        this.classList.add("brick");
+        this.classList.remove("empty");
         this.src = e.dataTransfer.getData("text"); 
       /*  this.src = "img/" + e + ".png"; */
         this.style.backgroundColor = "";
+        dragBrickElem.src = "img/empty.png"
+        dragBrickElem.classList.remove("brickFront");
+        dragBrickElem.classList.add("empty");
     }
 }
 //==============================//
