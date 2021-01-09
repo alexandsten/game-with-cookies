@@ -143,12 +143,7 @@ function brickOverEmpty(e) {
         gameBoardBrick[i].removeEventListener("dragend",dragEndBrick);
         } 
         brickHolderCount --;
-        if (brickHolderCount<1) {
-            newBricksBtn.disabled = false;
-        }
-    }
-    if (brickHolderCount<1) {
-        newBricksBtn.disabled = false;
+       finalCounter();
     }
   /*      for (let i = 0; i < brickHolder.length; i++) {
         if (brickHolder.length == draggable) {
@@ -162,6 +157,16 @@ function brickOverEmpty(e) {
 
 function brickLeaveEmpty(e) {
     this.style.backgroundColor = "";
+}
+
+//===============================
+
+//===== counters =============
+
+function finalCounter() {
+    if (brickHolderCount<1) {
+        newBricksBtn.disabled = false;
+    }
 }
 
 // ======== end game ==========//
