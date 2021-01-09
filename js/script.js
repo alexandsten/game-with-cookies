@@ -19,6 +19,7 @@ var numberGames;     //antal spel
 var totalPoints;     //det totala antalet poäng, sparas med hjälp av cookies
 
 var numberList;     //alla bricknummer kopieras till denna array
+var finalCount;
 
 //========== Init ===============//
 
@@ -57,6 +58,7 @@ function startGame() {
     newBricksBtn.disabled = false;
     numberList = allBricks.slice(0);
     brickHolderCount = 0;
+    finalCount = 15;
 }
 
 //===========================//
@@ -164,9 +166,14 @@ function brickLeaveEmpty(e) {
 //===== counters =============
 
 function finalCounter() {
+    
     if (brickHolderCount<1) {
         newBricksBtn.disabled = false;
     }
+    if (finalCount<1) {
+        alert("spelslut");
+    }
+    finalCount--;
 }
 
 // ======== end game ==========//
