@@ -7,6 +7,7 @@ var brickElem;   //bricka som flyttas, kan byta class mellan front och back
 var dragBrickElem; //den brickan som blir dragen
 
 var brickHolder;  //där fyra nya brickor visas
+var brickHolderCount; // räknar antalet brickor
 var gameBoard;   //planen där alla brickor ska placeras
 
 var markElem;    //markerar om raden är korrekt
@@ -18,7 +19,6 @@ var numberGames;     //antal spel
 var totalPoints;     //det totala antalet poäng, sparas med hjälp av cookies
 
 var numberList;     //alla bricknummer kopieras till denna array
-
 
 //========== Init ===============//
 
@@ -35,6 +35,8 @@ getElementsByClassName("brick");
 
 brickHolder = document.getElementById("newBricks").
 getElementsByClassName("empty");
+/* brickHolderCount = document.getElementById("countGames"); */
+
 
 numberGames = document.getElementById("countGames");
 totalPoints = document.getElementById("totPoints");
@@ -54,6 +56,7 @@ function startGame() {
     newGameBtn.disabled = true;
     newBricksBtn.disabled = false;
     numberList = allBricks.slice(0);
+    brickHolderCount = 0;
 }
 
 //===========================//
@@ -62,6 +65,7 @@ function startGame() {
 
 function addBricks() {  
    //här måste jag få fram 4 front brickor med varsit nummer från arrayen
+    newBricksBtn.disabled = true;
     for (let i = 0; i < brickHolder.length; i++) {   
     var r = Math.floor(numberList.length * Math.random())+1;
     brickHolder[i].draggable = true;
@@ -81,13 +85,14 @@ function addBricks() {
     for (let i = 0; i < brickHolder.length; i++) {
         brickHolder[i].classList.remove("empty");
     }
+    brickHolderCount = 4;
 }
 //=========================//
 
 //======= drag start brick =====//
 
 function dragStartBrickBoard(e) {
-    alert("Du kan ej flytta brickor på spelplanen!");
+ /*   alert("Du kan ej flytta brickor på spelplanen!"); */
 }
 
 function dragStartBrick(e) {
@@ -137,6 +142,13 @@ function brickOverEmpty(e) {
         gameBoardBrick[i].removeEventListener("dragstart",dragStartBrick);
         gameBoardBrick[i].removeEventListener("dragend",dragEndBrick);
         } 
+        brickHolderCount --;
+        if (brickHolderCount<1) {
+            newBricksBtn.disabled = false;
+        }
+    }
+    if (brickHolderCount<1) {
+        newBricksBtn.disabled = false;
     }
   /*      for (let i = 0; i < brickHolder.length; i++) {
         if (brickHolder.length == draggable) {
