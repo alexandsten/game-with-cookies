@@ -30,6 +30,9 @@ newBricksBtn  = document.getElementById("newBricksBtn");
 gameBoard = document.getElementById("board").
 getElementsByClassName("empty");
 
+gameBoardBrick = document.getElementById("board").
+getElementsByClassName("brick");
+
 brickHolder = document.getElementById("newBricks").
 getElementsByClassName("empty");
 
@@ -66,7 +69,6 @@ function addBricks() {
     brickHolder[i].addEventListener("dragstart",dragStartBrick);
     brickHolder[i].addEventListener("dragend",dragEndBrick);
     brickHolder[i].classList.add("brick");
-    brickHolder[i].classList.add("brickFront");
  /* brickHolder[i].classList.remove("empty"); */
     numberList.splice(r,1); 
     }
@@ -82,19 +84,29 @@ function addBricks() {
 }
 //=========================//
 
+
+
+
+
 //======= drag start brick =====//
+
+function dragStartBrickBoard(e) {
+        alert("Du kan ej flytta brickor på planen!");
+}
+
 
 function dragStartBrick(e) {
     for (let i = 0; i < gameBoard.length; i++) {
-		gameBoard[i].addEventListener("dragover",brickOverEmpty);
+        gameBoard[i].addEventListener("dragover",brickOverEmpty);
         gameBoard[i].addEventListener("drop",brickOverEmpty);
-        gameBoard[i].addEventListener("dragleave",brickLeaveEmpty);
+        gameBoard[i].addEventListener("dragleave",brickLeaveEmpty); 
         e.dataTransfer.setData("text",this.src);
    /*   this.classList.remove("empty"); */
         dragBrickElem = this;
     }
-    
 }
+
+
 
 // ==========================//
 
@@ -109,23 +121,35 @@ function dragEndBrick(e) {
 // ======== bricka över tom bricka ======//
 
 function brickOverEmpty(e) {
-    e.preventDefault();
+    e.preventDefault(); 
     this.style.backgroundColor = "#CCC";  
     /* if (this.getAttribute('class') === 'brickFront' ) {
         break;
     } */
      if (e.type == "drop") {
-        this.classList.add("brickFront");
         this.classList.add("brick");
         this.classList.remove("empty");
         this.src = e.dataTransfer.getData("text"); 
-      /*  this.src = "img/" + e + ".png"; */
         this.style.backgroundColor = "";
-        dragBrickElem.src = "img/empty.png"
-        dragBrickElem.classList.remove("brickFront");
+        dragBrickElem.src = "img/empty.png";
         dragBrickElem.classList.add("empty");
         dragBrickElem.classList.remove("brick");
+        //  ta bort dragfunktioner för bricka på spelplan
+        for (let i = 0; i < gameBoardBrick.length; i++) {
+        gameBoardBrick[i].draggable = false;    
+        gameBoardBrick[i].addEventListener("dragstart",dragStartBrickBoard);
+        gameBoardBrick[i].removeEventListener("dragover",brickOverEmpty);
+        gameBoardBrick[i].removeEventListener("drop",brickOverEmpty);
+        gameBoardBrick[i].removeEventListener("dragleave",brickLeaveEmpty);  
+        gameBoardBrick[i].removeEventListener("dragstart",dragStartBrick);
+        gameBoardBrick[i].removeEventListener("dragend",dragEndBrick);
+        } 
     }
+  /*      for (let i = 0; i < brickHolder.length; i++) {
+        if (brickHolder.length == draggable) {
+        alert("Dra först ord till alla bilder!!");
+        return; }
+  }  */
 }
 //==============================//
 
