@@ -218,10 +218,11 @@ function endGame() {
     // få fram värde ur brickor (den måste ju gå igenom brickorna för att komma åt värdena, annars stannar det bara på en bricka)
     r2.src = "img/9.png";
 
-    for (let i = 0; i < rad2.length; i++)
-    rad2[i] = 
-    ix = gameBoardBrick[i].id;
-    totalPoints.innerHTML += ix;
+    for (let i = 0; i < gameBoardBrick.length; i++)
+   /* gameBoardBrick[i].id = ix;
+    totalPoints.innerHTML += ix; */
+    idx = gameBoardBrick[i].id;
+    alert("idx");
 
     }
 
