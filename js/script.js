@@ -215,7 +215,7 @@ function endGame() {
     //byta mark bilder
 
     var rad2 = document.getElementById("board").getElementsByClassName("brick");
-    // få fram värde ur brickor
+    // få fram värde ur brickor (den måste ju gå igenom brickorna för att komma åt värdena, annars stannar det bara på en bricka)
     r2.src = "img/9.png";
 
     for (let i = 0; i < rad2.length; i++)
