@@ -75,7 +75,10 @@ function addBricks() {
     brickHolder[i].addEventListener("dragstart",dragStartBrick);
     brickHolder[i].addEventListener("dragend",dragEndBrick);
     brickHolder[i].classList.add("brick");
- /* brickHolder[i].classList.remove("empty"); */
+    ix = r;
+    brickHolder[i].id = ix;
+    
+ /*   brickHolder[i].classList.remove("empty"); */
     numberList.splice(r,1); 
     }
     for (let i = 0; i < brickHolder.length; i++) {
@@ -83,10 +86,10 @@ function addBricks() {
     }
     for (let i = 0; i < brickHolder.length; i++) {
         brickHolder[i].classList.remove("empty");
-    }
+    } 
     for (let i = 0; i < brickHolder.length; i++) {
         brickHolder[i].classList.remove("empty");
-    }
+    } 
     brickHolderCount = 4;
 }
 //=========================//
