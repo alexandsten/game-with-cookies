@@ -54,8 +54,15 @@ newBricksBtn.disabled = true;
 
 
 // bilder för check och cross
-check = new Image(); check.src = "img/1.png";
-cross = new Image(); cross.src = "img/2.png";
+r1 = new Image(); r1.src = "img/1.png";
+r2 = new Image(); r2.src = "img/2.png";
+r3 = new Image(); r3.src = "img/3.png";
+r4 = new Image(); r4.src = "img/4.png";
+
+c1 = new Image(); c1.src = "img/1.png";
+c2 = new Image(); c2.src = "img/2.png";
+c3 = new Image(); c3.src = "img/3.png";
+c4 = new Image(); c4.src = "img/4.png";
 
 
 
@@ -72,7 +79,6 @@ function startGame() {
     numberList = allBricks.slice(0);
     brickHolderCount = 0;
     finalCount = 15;
-    endGame();
 }
 
 //===========================//
@@ -197,10 +203,15 @@ function finalCounter() {
 // ======== end game ==========//
 
 function endGame() {
-    document.getElementById("r1mark").appendChild(cross);
-    document.getElementById("r2mark").appendChild(check);
-    document.getElementById("r3mark").appendChild(cross);
-    document.getElementById("r4mark").appendChild(check);
+    document.getElementById("r1mark").appendChild(r1);
+    document.getElementById("r2mark").appendChild(r2);
+    document.getElementById("r3mark").appendChild(r3);
+    document.getElementById("r4mark").appendChild(r4);
+
+    document.getElementById("c1mark").appendChild(c1);
+    document.getElementById("c2mark").appendChild(c2);
+    document.getElementById("c3mark").appendChild(c3);
+    document.getElementById("c4mark").appendChild(c4);
     }
 
 
