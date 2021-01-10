@@ -214,11 +214,12 @@ function endGame() {
     col3.appendChild(c3); col4.appendChild(c4);
     //byta mark bilder
 
-    var rad2 = document.getElementById("board").getElementsByClassName("r2");
+    var rad2 = document.getElementById("board").getElementsByClassName("brick");
     // få fram värde ur brickor
     r2.src = "img/9.png";
 
     for (let i = 0; i < rad2.length; i++)
+    rad2[i] = 
     ix = gameBoardBrick[i].id;
     totalPoints.innerHTML += ix;
 
