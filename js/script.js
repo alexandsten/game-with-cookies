@@ -21,7 +21,6 @@ var totalPoints;     //det totala antalet poäng, sparas med hjälp av cookies
 var numberList;     //alla bricknummer kopieras till denna array
 var finalCount;
 
-var correct = [];
 
 //========== Init ===============//
 
@@ -53,8 +52,10 @@ getElementsByClassName("mark");
 newBricksBtn.disabled = true;
 
 
-correct["check"] = new Image(); correct["check"].src = "img/1.png";
-correct["cross"] = new Image(); correct["cross"].src = "img/2.png";
+
+// bilder för check och cross
+check = new Image(); check.src = "img/1.png";
+cross = new Image(); cross.src = "img/2.png";
 
 
 
@@ -71,7 +72,7 @@ function startGame() {
     numberList = allBricks.slice(0);
     brickHolderCount = 0;
     finalCount = 15;
-    markElem.src = "img/1.png"
+    endGame();
 }
 
 //===========================//
@@ -188,7 +189,7 @@ function finalCounter() {
         newBricksBtn.disabled = false;
     }
     if (finalCount<1) {
-        alert("spelslut");
+        endGame();
     }
     finalCount--;
 }
@@ -196,8 +197,11 @@ function finalCounter() {
 // ======== end game ==========//
 
 function endGame() {
-    for (let i = 0; i < markElem.length; i++) {
-    markElem[i].src = "img/1.png";
+    document.getElementById("r1mark").appendChild(cross);
+    document.getElementById("r2mark").appendChild(check);
+    document.getElementById("r3mark").appendChild(cross);
+    document.getElementById("r4mark").appendChild(check);
     }
-}
+
+
 //=============================//
