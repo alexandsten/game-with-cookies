@@ -79,6 +79,7 @@ function startGame() {
     numberList = allBricks.slice(0);
     brickHolderCount = 0;
     finalCount = 15;
+    endGame();
 }
 
 //===========================//
@@ -203,15 +204,21 @@ function finalCounter() {
 // ======== end game ==========//
 
 function endGame() {
-    document.getElementById("r1mark").appendChild(r1);
-    document.getElementById("r2mark").appendChild(r2);
-    document.getElementById("r3mark").appendChild(r3);
-    document.getElementById("r4mark").appendChild(r4);
+    //rader och kolumner
+    row1 = document.getElementById("r1mark"); row2 = document.getElementById("r2mark");
+    row3 = document.getElementById("r3mark"); row4 = document.getElementById("r4mark");
 
-    document.getElementById("c1mark").appendChild(c1);
-    document.getElementById("c2mark").appendChild(c2);
-    document.getElementById("c3mark").appendChild(c3);
-    document.getElementById("c4mark").appendChild(c4);
+    col1 = document.getElementById("c1mark"); col2 = document.getElementById("c2mark");
+    col3 = document.getElementById("c3mark"); col4 = document.getElementById("c4mark");
+    
+    //lägg till bilder till rader och kolumner
+    row1.appendChild(r1); row2.appendChild(r2);
+    row3.appendChild(r3); row4.appendChild(r4);
+
+    col1.appendChild(c1); col2.appendChild(c2);
+    col3.appendChild(c3); col4.appendChild(c4);
+    //
+
     }
 
 
