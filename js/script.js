@@ -136,6 +136,9 @@ function dragEndBrick(e) {
         gameBoard[i].removeEventListener("drop",brickOverEmpty);
         gameBoard[i].removeEventListener("dragleave",brickLeaveEmpty); 
         }
+    for (let i = 0; i < brickHolder.length; i++) {
+        brickHolder[i].removeEventListener("dragstart",dragStartBrick);
+     }
 }
 
 // ==========================//
@@ -160,13 +163,9 @@ function brickOverEmpty(e) {
         dragBrickElem.draggable = false; 
         //  ta bort dragfunktioner för bricka på spelplan
         for (let i = 0; i < gameBoardBrick.length; i++) { 
-            gameBoardBrick[i].removeEventListener("dragstart",dragStartBrickBoard);
             gameBoardBrick[i].removeEventListener("dragover",brickOverEmpty);
             gameBoardBrick[i].removeEventListener("drop",brickOverEmpty);
-            gameBoardBrick[i].removeEventListener("dragleave",brickLeaveEmpty);  
-            gameBoardBrick[i].removeEventListener("dragend",dragEndBrick);
-            gameBoardBrick[i].draggable = false;  
-            } 
+            }  
         brickHolderCount --;
        finalCounter();
     }
