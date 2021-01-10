@@ -71,7 +71,7 @@ window.addEventListener("load",init); 		// Se till att init aktiveras då sidan 
 function startGame() {
     newGameBtn.disabled = true;
     newBricksBtn.disabled = false;
-    numberList = allBricks.slice(0);
+    numberList = allBricks.slice(1);
     brickHolderCount = 0;
     finalCount = 15;
     totalPoints.innerHTML = 0;
@@ -85,7 +85,7 @@ function addBricks() {
    //här måste jag få fram 4 front brickor med varsit nummer från arrayen
     newBricksBtn.disabled = true;
     for (let i = 0; i < brickHolder.length; i++) {   
-    var r = Math.floor(numberList.length * Math.random())+1;
+    var r = Math.floor(numberList.length * Math.random());
     brickHolder[i].draggable = true;
     brickHolder[i].src = "img/" + r + ".png";
     brickHolder[i].addEventListener("dragstart",dragStartBrick);
@@ -93,7 +93,6 @@ function addBricks() {
     brickHolder[i].classList.add("brick");
     ix = r;
     brickHolder[i].id = ix;
-    
  /*   brickHolder[i].classList.remove("empty"); */
     numberList.splice(r,1); 
     }
@@ -154,15 +153,16 @@ function brickOverEmpty(e) {
         dragBrickElem.src = "img/empty.png";
         dragBrickElem.classList.add("empty");
         dragBrickElem.classList.remove("brick");
+        dragBrickElem.draggable = false; 
         //  ta bort dragfunktioner för bricka på spelplan
-        for (let i = 0; i < gameBoardBrick.length; i++) {
-        gameBoardBrick[i].draggable = false;    
-        gameBoardBrick[i].addEventListener("dragstart",dragStartBrickBoard);
-        gameBoardBrick[i].removeEventListener("dragover",brickOverEmpty);
-        gameBoardBrick[i].removeEventListener("drop",brickOverEmpty);
-        gameBoardBrick[i].removeEventListener("dragleave",brickLeaveEmpty);  
-        gameBoardBrick[i].removeEventListener("dragstart",dragStartBrick);
-        gameBoardBrick[i].removeEventListener("dragend",dragEndBrick);
+        for (let i = 0; i < gameBoardBrick.length; i++) { 
+            gameBoardBrick[i].addEventListener("dragstart",dragStartBrickBoard);
+            gameBoardBrick[i].removeEventListener("dragover",brickOverEmpty);
+            gameBoardBrick[i].removeEventListener("drop",brickOverEmpty);
+            gameBoardBrick[i].removeEventListener("dragleave",brickLeaveEmpty);  
+            gameBoardBrick[i].removeEventListener("dragstart",dragStartBrick);
+            gameBoardBrick[i].removeEventListener("dragend",dragEndBrick);
+            gameBoardBrick[i].draggable = false;   
         } 
         brickHolderCount --;
        finalCounter();
