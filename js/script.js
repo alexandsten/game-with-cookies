@@ -45,7 +45,16 @@ totalPoints = document.getElementById("totPoints");
 newGameBtn.addEventListener("click",startGame);
 newBricksBtn.addEventListener("click",addBricks);
 
+markElem = document.getElementById("board").
+getElementsByClassName("mark");
+
 newBricksBtn.disabled = true;
+
+trueOrFalse["check"] = new Image(); trueOrFalse["check"].src = “img/1.png”;
+trueOrFalse["cross"] = new Image();  trueOrFalse["cross"].src = “img/1.png”;
+
+
+
 }
 //==============================//
 
@@ -59,6 +68,7 @@ function startGame() {
     numberList = allBricks.slice(0);
     brickHolderCount = 0;
     finalCount = 15;
+    markElem.src = "img/1.png"
 }
 
 //===========================//
@@ -134,6 +144,7 @@ function brickOverEmpty(e) {
         this.classList.remove("empty");
         this.src = e.dataTransfer.getData("text"); 
         this.style.backgroundColor = "";
+        this.id = dragBrickElem.id;
         dragBrickElem.src = "img/empty.png";
         dragBrickElem.classList.add("empty");
         dragBrickElem.classList.remove("brick");
@@ -182,6 +193,8 @@ function finalCounter() {
 // ======== end game ==========//
 
 function endGame() {
-
+    for (let i = 0; i < markElem.length; i++) {
+    markElem[i].src = "img/1.png";
+    }
 }
 //=============================//
