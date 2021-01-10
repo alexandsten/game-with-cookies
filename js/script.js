@@ -74,7 +74,7 @@ function startGame() {
     numberList = allBricks.slice(0);
     brickHolderCount = 0;
     finalCount = 15;
-    endGame();
+    totalPoints.innerHTML = 0;
 }
 
 //===========================//
@@ -213,8 +213,14 @@ function endGame() {
     col1.appendChild(c1); col2.appendChild(c2);
     col3.appendChild(c3); col4.appendChild(c4);
     //byta mark bilder
-    
+
+    var rad2 = document.getElementById("board").getElementsByClassName("r2");
+    // få fram värde ur brickor
     r2.src = "img/9.png";
+
+    for (let i = 0; i < rad2.length; i++)
+    ix = gameBoardBrick[i].id;
+    totalPoints.innerHTML += ix;
 
     }
 
