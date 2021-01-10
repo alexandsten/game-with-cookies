@@ -110,9 +110,6 @@ function addBricks() {
 
 //======= drag start brick =====//
 
-function dragStartBrickBoard(e) {
- /*   alert("Du kan ej flytta brickor på spelplanen!"); */
-}
 
 function dragStartBrick(e) {
     for (let i = 0; i < gameBoard.length; i++) {
