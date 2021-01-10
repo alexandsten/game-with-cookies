@@ -21,6 +21,8 @@ var totalPoints;     //det totala antalet poäng, sparas med hjälp av cookies
 var numberList;     //alla bricknummer kopieras till denna array
 var finalCount;
 
+var correct = [];
+
 //========== Init ===============//
 
 function init() {
@@ -50,8 +52,9 @@ getElementsByClassName("mark");
 
 newBricksBtn.disabled = true;
 
-trueOrFalse["check"] = new Image(); trueOrFalse["check"].src = “img/1.png”;
-trueOrFalse["cross"] = new Image();  trueOrFalse["cross"].src = “img/1.png”;
+
+correct["check"] = new Image(); correct["check"].src = "img/1.png";
+correct["cross"] = new Image(); correct["cross"].src = "img/2.png";
 
 
 
