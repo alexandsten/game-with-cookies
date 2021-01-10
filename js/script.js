@@ -86,7 +86,6 @@ function addBricks() {
     newBricksBtn.disabled = true;
     for (let i = 0; i < brickHolder.length; i++) {   
     var r = Math.floor(numberList.length * Math.random())+1;
-    brickHolder[i].draggable = true;
     brickHolder[i].src = "img/" + r + ".png";
     brickHolder[i].addEventListener("dragstart",dragStartBrick);
     brickHolder[i].addEventListener("dragend",dragEndBrick);
@@ -132,6 +131,11 @@ function dragStartBrick(e) {
 //======= drag end brick =====//
 
 function dragEndBrick(e) {
+    for (let i = 0; i < gameBoard.length; i++) {
+        gameBoard[i].removeEventListener("dragover",brickOverEmpty);
+        gameBoard[i].removeEventListener("drop",brickOverEmpty);
+        gameBoard[i].removeEventListener("dragleave",brickLeaveEmpty); 
+        }
 }
 
 // ==========================//
@@ -156,14 +160,13 @@ function brickOverEmpty(e) {
         dragBrickElem.draggable = false; 
         //  ta bort dragfunktioner för bricka på spelplan
         for (let i = 0; i < gameBoardBrick.length; i++) { 
-            gameBoardBrick[i].addEventListener("dragstart",dragStartBrickBoard);
+            gameBoardBrick[i].removeEventListener("dragstart",dragStartBrickBoard);
             gameBoardBrick[i].removeEventListener("dragover",brickOverEmpty);
             gameBoardBrick[i].removeEventListener("drop",brickOverEmpty);
             gameBoardBrick[i].removeEventListener("dragleave",brickLeaveEmpty);  
-            gameBoardBrick[i].removeEventListener("dragstart",dragStartBrick);
             gameBoardBrick[i].removeEventListener("dragend",dragEndBrick);
-            gameBoardBrick[i].draggable = false;   
-        } 
+            gameBoardBrick[i].draggable = false;  
+            } 
         brickHolderCount --;
        finalCounter();
     }
@@ -179,6 +182,7 @@ function brickOverEmpty(e) {
 
 function brickLeaveEmpty(e) {
     this.style.backgroundColor = "";
+
 }
 
 //===============================
