@@ -219,11 +219,7 @@ function endGame() {
     r2.src = "img/9.png";
 
     for (let i = 0; i < gameBoardBrick.length; i++)
-   /* gameBoardBrick[i].id = ix;
-    totalPoints.innerHTML += ix; */
-    idx = gameBoardBrick[i].id;
-    alert("idx");
-
+    alert("id" + idx + " rätt?");
     }
 
 
