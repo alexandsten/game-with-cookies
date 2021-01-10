@@ -71,7 +71,7 @@ window.addEventListener("load",init); 		// Se till att init aktiveras då sidan 
 function startGame() {
     newGameBtn.disabled = true;
     newBricksBtn.disabled = false;
-    numberList = allBricks.slice(1);
+    numberList = allBricks.slice(0);
     brickHolderCount = 0;
     finalCount = 15;
     totalPoints.innerHTML = 0;
@@ -85,7 +85,7 @@ function addBricks() {
    //här måste jag få fram 4 front brickor med varsit nummer från arrayen
     newBricksBtn.disabled = true;
     for (let i = 0; i < brickHolder.length; i++) {   
-    var r = Math.floor(numberList.length * Math.random());
+    var r = Math.floor(numberList.length * Math.random())+1;
     brickHolder[i].draggable = true;
     brickHolder[i].src = "img/" + r + ".png";
     brickHolder[i].addEventListener("dragstart",dragStartBrick);
@@ -140,7 +140,7 @@ function dragEndBrick(e) {
 
 function brickOverEmpty(e) {
     e.preventDefault(); 
-    this.style.backgroundColor = "#CCC";  
+    this.style.backgroundColor = "#800080";  
     /* if (this.getAttribute('class') === 'brickFront' ) {
         break;
     } */
