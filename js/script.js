@@ -218,7 +218,7 @@ function endGame() {
 
     r2.src = "img/9.png"; // detta kan ersättas med check eller cross
 
-    var brickId;
+    var brickId; // brickans id nummer / värde
 
     for (let i = 0; i < gameBoardBrick.length; i++) {
     brickId = gameBoardBrick[i].id;
