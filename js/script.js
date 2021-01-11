@@ -75,7 +75,6 @@ function startGame() {
     brickHolderCount = 0;
     finalCount = 15;
     totalPoints.innerHTML = 0;
-    endGame();
 }
 
 //===========================//
