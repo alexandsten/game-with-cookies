@@ -82,6 +82,7 @@ function startGame() {
 //======= newBricks ========//
 
 function addBricks() {  
+
    //här måste jag få fram 4 front brickor med varsit nummer från arrayen
     newBricksBtn.disabled = true;
     for (let i = 0; i < brickHolder.length; i++) {   
@@ -93,7 +94,8 @@ function addBricks() {
     ix = r;
     brickHolder[i].id = ix;
  /*   brickHolder[i].classList.remove("empty"); */
-    numberList.splice(r,1); 
+    numberList.splice(ix,1); 
+    console.log(numberList);
     }
     for (let i = 0; i < brickHolder.length; i++) {
         brickHolder[i].classList.remove("empty");
