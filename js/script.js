@@ -75,6 +75,7 @@ function startGame() {
     brickHolderCount = 0;
     finalCount = 15;
     totalPoints.innerHTML = 0;
+    endGame();
 }
 
 //===========================//
@@ -216,8 +217,12 @@ function endGame() {
     // få fram värde ur brickor (den måste ju gå igenom brickorna för att komma åt värdena, annars stannar det bara på en bricka)
     r2.src = "img/9.png";
 
-    for (let i = 0; i < gameBoardBrick.length; i++)
-    alert("id" + idx + " rätt?");
+    var brickId;
+
+    for (let i = 0; i < gameBoardBrick.length; i++) {
+    brickId = gameBoardBrick[i].id;
+    alert("id " + brickId + " rätt?");
+            }
     }
 
 
