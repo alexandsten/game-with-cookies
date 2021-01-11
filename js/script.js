@@ -82,7 +82,6 @@ function startGame() {
 //======= newBricks ========//
 
 function addBricks() {  
-
    //här måste jag få fram 4 front brickor med varsit nummer från arrayen
     newBricksBtn.disabled = true;
     for (let i = 0; i < brickHolder.length; i++) {     
