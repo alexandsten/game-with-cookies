@@ -207,14 +207,12 @@ function endGame() {
     col3 = document.getElementById("c3mark"); col4 = document.getElementById("c4mark");
 
     //rader och kolumner får img element från init
-    row1.appendChild(r1); row2.appendChild(r2);
-    row3.appendChild(r3); row4.appendChild(r4);
+    row1.appendChild(r1); row2.appendChild(r2);  col1.appendChild(c1); col2.appendChild(c2);
+    row3.appendChild(r3); row4.appendChild(r4);  col3.appendChild(c3); col4.appendChild(c4);
 
-    col1.appendChild(c1); col2.appendChild(c2);
-    col3.appendChild(c3); col4.appendChild(c4);
     //byta mark bilder
 
-    var rad2 = document.getElementById("board").getElementsByClassName("brick");
+    var rad2 = document.getElementById("board").getElementsByClassName("r2");
     // få fram värde ur brickor (den måste ju gå igenom brickorna för att komma åt värdena, annars stannar det bara på en bricka)
     r2.src = "img/9.png";
 
