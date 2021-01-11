@@ -227,7 +227,7 @@ function endGame() {
     rowTwoBricks.push(brickId);
             }
 
-    for (let i = 0; i < rowTwoBricks.length; i++) {     // göra en mätning mellan värden här?
+    for (let i = 0; i < rowTwoBricks.length; i++) {     // göra en mätning mellan värden här på något vis?
          var nrCompare = rowTwoBricks[i];
          alert("id " + nrCompare + " rätt?"); // 
     }
