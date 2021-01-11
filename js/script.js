@@ -213,18 +213,25 @@ function endGame() {
 
     //byta mark bilder
 
-    var rad2 = document.getElementById("board").getElementsByClassName("r2");
+    var rowTwo = document.getElementById("board").getElementsByClassName("r2");
     // få fram värde ur brickor (den måste ju gå igenom brickorna för att komma åt värdena, annars stannar det bara på en bricka)
 
     r2.src = "img/9.png"; // detta kan ersättas med check eller cross
 
     var brickId; // brickans id nummer / värde
+    var rowTwoBricks = [];
 
-    for (let i = 0; i < gameBoardBrick.length; i++) {
-    brickId = gameBoardBrick[i].id;
+    for (let i = 0; i < rowTwo.length; i++) {         // loop som tar ut id / värde ur rad 2
+    brickId = rowTwo[i].id;
     alert("id " + brickId + " rätt?"); // pusha in i array?
+    rowTwoBricks.push(brickId);
             }
+
+    for (let i = 0; i < rowTwoBricks.length; i++) {     // göra en mätning mellan värden här?
+         var nrCompare = rowTwoBricks[i];
+         alert("id " + nrCompare + " rätt?"); // 
     }
+}
 
 
 //=============================//
