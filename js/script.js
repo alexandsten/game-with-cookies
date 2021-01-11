@@ -215,14 +215,14 @@ function endGame() {
 
     var rad2 = document.getElementById("board").getElementsByClassName("r2");
     // få fram värde ur brickor (den måste ju gå igenom brickorna för att komma åt värdena, annars stannar det bara på en bricka)
-    
+
     r2.src = "img/9.png"; // detta kan ersättas med check eller cross
 
     var brickId;
 
     for (let i = 0; i < gameBoardBrick.length; i++) {
     brickId = gameBoardBrick[i].id;
-    alert("id " + brickId + " rätt?");
+    alert("id " + brickId + " rätt?"); // pusha in i array?
             }
     }
 
