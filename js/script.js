@@ -37,7 +37,8 @@ getElementsByClassName("brick");
 
 brickHolder = document.getElementById("newBricks").
 getElementsByClassName("empty");
-/* brickHolderCount = document.getElementById("countGames"); */
+
+brickHolderId = document.getElementById("newBricks");
 
 
 numberGames = document.getElementById("countGames");
@@ -75,7 +76,6 @@ function startGame() {
     brickHolderCount = 0;
     finalCount = 15;
     totalPoints.innerHTML = 0;
-    endGame();
 }
 
 //===========================//
