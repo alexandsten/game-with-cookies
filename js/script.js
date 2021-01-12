@@ -51,17 +51,6 @@ markElem = document.getElementById("board").
 getElementsByClassName("mark");
 
 newBricksBtn.disabled = true;
-
-// bilder för check och cross
-/*r1 = new Image(); r1.src = "img/1.png";
-r2 = new Image(); r2.src = "img/2.png";
-r3 = new Image(); r3.src = "img/3.png";
-r4 = new Image(); r4.src = "img/4.png";
-
-c1 = new Image(); c1.src = "img/1.png";
-c2 = new Image(); c2.src = "img/2.png";
-c3 = new Image(); c3.src = "img/3.png";
-c4 = new Image(); c4.src = "img/4.png"; */
 }
 //==============================//
 
@@ -119,7 +108,6 @@ function dragStartBrick(e) {
         gameBoard[i].addEventListener("drop",brickOverEmpty);
         gameBoard[i].addEventListener("dragleave",brickLeaveEmpty); 
         e.dataTransfer.setData("text",this.src);
-   /*   this.classList.remove("empty"); */
         dragBrickElem = this;
     }
 }
@@ -147,9 +135,6 @@ function dragEndBrick(e) {
 function brickOverEmpty(e) {
     e.preventDefault(); 
     this.style.backgroundColor = "#800080";  
-    /* if (this.getAttribute('class') === 'brickFront' ) {
-        break;
-    } */
      if (e.type == "drop") {
         this.classList.add("brick");
         this.classList.remove("empty");
@@ -168,11 +153,6 @@ function brickOverEmpty(e) {
         brickHolderCount --;
        finalCounter();
     }
-  /*      for (let i = 0; i < brickHolder.length; i++) {
-        if (brickHolder.length == draggable) {
-        alert("Dra först ord till alla bilder!!");
-        return; }
-  }  */
 }
 //==============================//
 
@@ -180,15 +160,12 @@ function brickOverEmpty(e) {
 
 function brickLeaveEmpty(e) {
     this.style.backgroundColor = "";
-
 }
-
 //===============================
 
 //===== counters =============
 
-function finalCounter() {
-    
+function finalCounter() {  
     if (brickHolderCount<1) {
         newBricksBtn.disabled = false;
     }
@@ -209,8 +186,6 @@ function endGame() {
     col3 = document.getElementById("c3mark"); col4 = document.getElementById("c4mark");
 
     //rader och kolumner får img element från init
-   /* row1.appendChild(r1); row2.appendChild(r2);  col1.appendChild(c1); col2.appendChild(c2);
-    row3.appendChild(r3); row4.appendChild(r4);  col3.appendChild(c3); col4.appendChild(c4); */
     /* row1.innerHTML = "&check;";
     col3.innerHTML = "&cross;"; */
     row2.innerHTML = "&cross;";
@@ -219,9 +194,6 @@ function endGame() {
 
     var rowTwo = document.getElementById("board").getElementsByClassName("r2");
     // få fram värde ur brickor (den måste ju gå igenom brickorna för att komma åt värdena, annars stannar det bara på en bricka)
-
-    /* r2.src = "img/9.png"; // detta kan ersättas med check eller cross */
-
     var brickId; // brickans id nummer / värde
     var rowTwoBricks = [];
 
@@ -236,10 +208,6 @@ function endGame() {
     brickIdTwo = rowTwo[1].id;
     brickIdThree = rowTwo[2].id;
     brickIdFour = rowTwo[3].id;
-    /* alert("id " + brickIdOne + " rätt?"); // pusha in i array?
-    alert("id " + brickIdTwo + " rätt?"); // pusha in i array?
-    alert("id " + brickIdThree + " rätt?"); // pusha in i array?
-    alert("id " + brickIdFour + " rätt?"); // pusha in i array? */
     rowTwoBricks.push(brickId);
             }
     
@@ -259,15 +227,6 @@ function endGame() {
     }
     if (brickIdOnea < brickIdFoura) {
         alert("id " + brickIdOnea + " minre än "+   brickIdFoura + " loop");
-    } */
-
-   /* for (let i = 0; i < rowTwoBricks.length; i++) {     // göra en mätning mellan värden här på något vis?
-         var nrCompare = rowTwoBricks[i];
-         alert("id " + nrCompare + " rätt?"); // 
-         var a = rowTwoBricks[1];
-         var b = rowTwoBricks[2];
-         var c = rowTwoBricks[3];
-         var d = rowTwoBricks[4];
     } */
 }
 
