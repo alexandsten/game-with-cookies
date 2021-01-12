@@ -247,7 +247,7 @@ function endGame() {
             var brickIdThreea = parseInt(brickIdThree, 10);
             var brickIdFoura = parseInt(brickIdFour, 10);
     if (brickIdOnea < brickIdTwoa) {
-        alert("id" + brickIdOnea + " minre än " + brickIdTwoa + " loop?");
+        alert("id " + brickIdOnea + " minre än " + brickIdTwoa + " loop?");
     }
     if (brickIdOnea < brickIdThreea) {
         alert("id " + brickIdOnea + " minre än "+  brickIdThreea + " loop?");
