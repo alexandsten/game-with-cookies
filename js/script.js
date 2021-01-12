@@ -86,15 +86,15 @@ function addBricks() {
    //här måste jag få fram 4 front brickor med varsit nummer från arrayen
     newBricksBtn.disabled = true;
     for (let i = 0; i < brickHolder.length; i++) {     
-    var r = Math.floor(numberList.length * Math.random())+1;
-    brickHolder[i].src = "img/" + r + ".png";
+    var r = Math.floor(numberList.length * Math.random());
+    brickHolder[i].src = "img/" + numberList[r] + ".png";
     brickHolder[i].addEventListener("dragstart",dragStartBrick);
     brickHolder[i].addEventListener("dragend",dragEndBrick);
     brickHolder[i].classList.add("brick");
-    ix = r;
+    ix = numberList[r];
     brickHolder[i].id = ix;
  /*   brickHolder[i].classList.remove("empty"); */
-    numberList.splice(ix,1); 
+    numberList.splice(r,1); 
     console.log(numberList);
     }
     for (let i = 0; i < brickHolder.length; i++) {
@@ -219,7 +219,7 @@ function endGame() {
     var rowTwo = document.getElementById("board").getElementsByClassName("r2");
     // få fram värde ur brickor (den måste ju gå igenom brickorna för att komma åt värdena, annars stannar det bara på en bricka)
 
-    r2.src = "img/9.png"; // detta kan ersättas med check eller cross
+    /* r2.src = "img/9.png"; // detta kan ersättas med check eller cross */
 
     var brickId; // brickans id nummer / värde
     var rowTwoBricks = [];
