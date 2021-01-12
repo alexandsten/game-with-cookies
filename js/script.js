@@ -211,8 +211,9 @@ function endGame() {
     //rader och kolumner får img element från init
    /* row1.appendChild(r1); row2.appendChild(r2);  col1.appendChild(c1); col2.appendChild(c2);
     row3.appendChild(r3); row4.appendChild(r4);  col3.appendChild(c3); col4.appendChild(c4); */
-    row1.innerHTML = "&check;";
-    col3.innerHTML = "&cross;";
+    /* row1.innerHTML = "&check;";
+    col3.innerHTML = "&cross;"; */
+    row2.innerHTML = "&cross;";
 
     //byta mark bilder
 
@@ -248,6 +249,7 @@ function endGame() {
             var brickIdFoura = parseInt(brickIdFour, 10);
     if (brickIdOnea < brickIdTwoa && brickIdThreea < brickIdFoura) {
         alert("id " + brickIdOnea + " minre än " + brickIdTwoa + " minre än " + brickIdThreea + " minre än " + brickIdFoura);
+        row2.innerHTML = "&check;";
     }
    /* if (brickIdOnea < brickIdThreea) {
         alert("id " + brickIdOnea + " minre än "+  brickIdThreea + " loop?");
