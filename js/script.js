@@ -235,10 +235,10 @@ function endGame() {
     brickIdTwo = rowTwo[1].id;
     brickIdThree = rowTwo[2].id;
     brickIdFour = rowTwo[3].id;
-    alert("id " + brickIdOne + " rätt?"); // pusha in i array?
+    /* alert("id " + brickIdOne + " rätt?"); // pusha in i array?
     alert("id " + brickIdTwo + " rätt?"); // pusha in i array?
     alert("id " + brickIdThree + " rätt?"); // pusha in i array?
-    alert("id " + brickIdFour + " rätt?"); // pusha in i array?
+    alert("id " + brickIdFour + " rätt?"); // pusha in i array? */
     rowTwoBricks.push(brickId);
             }
     
@@ -247,9 +247,9 @@ function endGame() {
             var brickIdThreea = parseInt(brickIdThree, 10);
             var brickIdFoura = parseInt(brickIdFour, 10);
     if (brickIdOnea < brickIdTwoa) {
-        alert("id " + brickIdOnea + " minre än " + brickIdTwoa + " loop?");
+        alert("id " + brickIdOnea + " minre än " + brickIdTwoa + " minre än " + brickIdThreea + " minre än " + brickIdFoura);
     }
-    if (brickIdOnea < brickIdThreea) {
+   /* if (brickIdOnea < brickIdThreea) {
         alert("id " + brickIdOnea + " minre än "+  brickIdThreea + " loop?");
     }
     if (brickIdThreea < brickIdTwoa) {
@@ -257,7 +257,7 @@ function endGame() {
     }
     if (brickIdOnea < brickIdFoura) {
         alert("id " + brickIdOnea + " minre än "+   brickIdFoura + " loop");
-    }
+    } */
 
    /* for (let i = 0; i < rowTwoBricks.length; i++) {     // göra en mätning mellan värden här på något vis?
          var nrCompare = rowTwoBricks[i];
