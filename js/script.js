@@ -204,18 +204,18 @@ function endGame() {
 
 
     for (let i = 0; i < rowTwo.length; i++) {         // loop som tar ut id / värde ur rad 2
-    brickIdOne = rowTwo[0].id;
-    brickIdTwo = rowTwo[1].id;
-    brickIdThree = rowTwo[2].id;
-    brickIdFour = rowTwo[3].id;
-    rowTwoBricks.push(brickId);
+        brickIdOne = rowTwo[0].id;
+        brickIdTwo = rowTwo[1].id;
+        brickIdThree = rowTwo[2].id;
+        brickIdFour = rowTwo[3].id;
+        rowTwoBricks.push(brickId);
             }
     
             var brickIdOnea = parseInt(brickIdOne, 10);
             var brickIdTwoa = parseInt(brickIdTwo, 10);
             var brickIdThreea = parseInt(brickIdThree, 10);
             var brickIdFoura = parseInt(brickIdFour, 10);
-    if (brickIdOnea < brickIdTwoa && brickIdThreea < brickIdFoura) {
+    if (brickIdOnea < brickIdTwoa && brickIdTwoa < brickIdThreea && brickIdThreea < brickIdFoura) {
         alert("id " + brickIdOnea + " minre än " + brickIdTwoa + " minre än " + brickIdThreea + " minre än " + brickIdFoura);
         row2.innerHTML = "&check;";
     }
