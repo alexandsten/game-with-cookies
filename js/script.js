@@ -224,16 +224,44 @@ function endGame() {
     var brickId; // brickans id nummer / värde
     var rowTwoBricks = [];
 
+    var brickIdOne;
+    var brickIdTwo;
+    var brickIdThree;
+    var brickIdFour;
+
+
     for (let i = 0; i < rowTwo.length; i++) {         // loop som tar ut id / värde ur rad 2
-    brickId = rowTwo[i].id;
-    alert("id " + brickId + " rätt?"); // pusha in i array?
+    brickIdOne = rowTwo[0].id;
+    brickIdTwo = rowTwo[1].id;
+    brickIdThree = rowTwo[2].id;
+    brickIdFour = rowTwo[3].id;
+    alert("id " + brickIdOne + " rätt?"); // pusha in i array?
+    alert("id " + brickIdTwo + " rätt?"); // pusha in i array?
+    alert("id " + brickIdThree + " rätt?"); // pusha in i array?
+    alert("id " + brickIdFour + " rätt?"); // pusha in i array?
     rowTwoBricks.push(brickId);
             }
+    if (brickIdOne < brickIdTwo) {
+        alert("id " + brickIdOne + brickIdTwo + " rätt?");
+    }
+    if (brickIdOne < brickIdThree) {
+        alert("id " + brickIdOne + brickIdThree + " rätt?");
+    }
+    if (brickIdThree < brickIdTwo) {
+        alert("id " + brickIdThree + brickIdTwo + " rätt?");
+    }
+    if (brickIdOne < brickIdFour) {
+        alert("id " + brickIdOne + brickIdFour + " rätt?");
+    }
 
-    for (let i = 0; i < rowTwoBricks.length; i++) {     // göra en mätning mellan värden här på något vis?
+   /* for (let i = 0; i < rowTwoBricks.length; i++) {     // göra en mätning mellan värden här på något vis?
          var nrCompare = rowTwoBricks[i];
          alert("id " + nrCompare + " rätt?"); // 
-    }
+         var a = rowTwoBricks[1];
+         var b = rowTwoBricks[2];
+         var c = rowTwoBricks[3];
+         var d = rowTwoBricks[4];
+    } */
 }
 
 
