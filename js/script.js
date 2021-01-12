@@ -241,17 +241,22 @@ function endGame() {
     alert("id " + brickIdFour + " rätt?"); // pusha in i array?
     rowTwoBricks.push(brickId);
             }
-    if (brickIdOne < brickIdTwo) {
-        alert("id " + brickIdOne + brickIdTwo + " rätt?");
+    
+            var brickIdOnea = parseInt(brickIdOne, 10);
+            var brickIdTwoa = parseInt(brickIdTwo, 10);
+            var brickIdThreea = parseInt(brickIdThree, 10);
+            var brickIdFoura = parseInt(brickIdFour, 10);
+    if (brickIdOnea < brickIdTwoa) {
+        alert("id" + brickIdOnea + " minre än " + brickIdTwoa + " loop?");
     }
-    if (brickIdOne < brickIdThree) {
-        alert("id " + brickIdOne + brickIdThree + " rätt?");
+    if (brickIdOnea < brickIdThreea) {
+        alert("id " + brickIdOnea + " minre än "+  brickIdThreea + " loop?");
     }
-    if (brickIdThree < brickIdTwo) {
-        alert("id " + brickIdThree + brickIdTwo + " rätt?");
+    if (brickIdThreea < brickIdTwoa) {
+        alert("id " + brickIdThreea + " minre än "+   brickIdTwoa + " loop?");
     }
-    if (brickIdOne < brickIdFour) {
-        alert("id " + brickIdOne + brickIdFour + " rätt?");
+    if (brickIdOnea < brickIdFoura) {
+        alert("id " + brickIdOnea + " minre än "+   brickIdFoura + " loop");
     }
 
    /* for (let i = 0; i < rowTwoBricks.length; i++) {     // göra en mätning mellan värden här på något vis?
