@@ -352,7 +352,7 @@ numberGamesElem.innerHTML = numberGames;
         setCookie("kakan",theData,30);	// Datan sparas i en cookie
     newGameBtn.disabled = false;
     newBricksBtn.disabled = true;
-    // ==== testa med nytt spel //
+    // ====  nytt spel //
     newGameBtn.addEventListener("click",startAnotherGame);
 }
 //================= gör allt redo för en ny omgång ============//
