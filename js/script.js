@@ -377,8 +377,8 @@ if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdT
 
 }
 function SetKakan() {
-    let text = formElem.text.value; // Texten i formuläret
-    let text = formElem.text.value; // Texten i formuläret
+    let text = totalPoints.text.value; // Texten i formuläret
+    let textTwo = formElem.text.value; // Texten i formuläret 
     let theData = encodeURIComponent(text) + "&" + encodeURIComponent(totalGames);
         setCookie("kakan",theData,30);	// Datan sparas i en cookie
         location.href = "inxex.html";
