@@ -39,6 +39,7 @@ markElem = document.getElementById("board").
 getElementsByClassName("mark");
 messageElem = document.getElementById("message");
 numberGamesElem = document.getElementById("countGames")
+
 newBricksBtn.disabled = true;
 totalPoints = 0;
 totalPointsElem.innerHTML = 0;
@@ -377,4 +378,4 @@ function startAnotherGame() {       // rensa bort alla resultat och brickor, så
     col3.innerHTML = "";
     col4.innerHTML = "";
     messageElem.innerHTML = "";
-}
+    }
