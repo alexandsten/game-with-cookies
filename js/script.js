@@ -85,6 +85,7 @@ function addBricks() {
     brickHolder[i].addEventListener("dragstart",dragStartBrick);
     brickHolder[i].addEventListener("dragend",dragEndBrick);
     brickHolder[i].classList.add("brick");
+    brickHolder[i].draggable = true; 
     ix = numberList[r];
     brickHolder[i].id = ix;
  /*   brickHolder[i].classList.remove("empty"); */
