@@ -171,7 +171,7 @@ function dragEndBrick(e) {
 
 function brickOverEmpty(e) {
     e.preventDefault(); 
-    this.style.backgroundColor = "#800080";  
+    this.style.backgroundColor = "#2FC09F";  
      if (e.type == "drop") {
         this.classList.add("brick");
         this.classList.remove("empty");
