@@ -25,10 +25,6 @@ var messageElem;        // meddelande till spelaren
 
 var numberList;     //alla bricknummer kopieras till denna array
 var finalCount;     // nedräkning till endGame
-
-
-
-
 //========== Init ===============//
 
 function init() {
@@ -103,7 +99,6 @@ function startGame() {
     brickHolderCount = 0;
     finalCount = 15;
 }
-
 //===========================//
 
 //======= newBricks ========//
@@ -255,8 +250,7 @@ function endGame() {
         brickIdTwo = rowOne[1].id;
         brickIdThree = rowOne[2].id;
         brickIdFour = rowOne[3].id;
-            }
-    
+            } 
             var brickIdOneNum = parseInt(brickIdOne, 10);
             var brickIdTwoNum = parseInt(brickIdTwo, 10);
             var brickIdThreeNum = parseInt(brickIdThree, 10);
@@ -273,8 +267,7 @@ function endGame() {
         brickIdTwo = rowTwo[1].id;
         brickIdThree = rowTwo[2].id;
         brickIdFour = rowTwo[3].id;
-            }
-    
+            }    
             var brickIdOneNum = parseInt(brickIdOne, 10);
             var brickIdTwoNum = parseInt(brickIdTwo, 10);
             var brickIdThreeNum = parseInt(brickIdThree, 10);
@@ -292,7 +285,6 @@ for (let i = 0; i < rowThree.length; i++) {         // loop som tar ut id / vär
     brickIdThree = rowThree[2].id;
     brickIdFour = rowThree[3].id;
         }
-
         var brickIdOneNum = parseInt(brickIdOne, 10);
         var brickIdTwoNum = parseInt(brickIdTwo, 10);
         var brickIdThreeNum = parseInt(brickIdThree, 10);
@@ -310,7 +302,6 @@ for (let i = 0; i < rowFour.length; i++) {         // loop som tar ut id / värd
     brickIdThree = rowFour[2].id;
     brickIdFour = rowFour[3].id;
         }
-
         var brickIdOneNum = parseInt(brickIdOne, 10);
         var brickIdTwoNum = parseInt(brickIdTwo, 10);
         var brickIdThreeNum = parseInt(brickIdThree, 10);
@@ -322,8 +313,6 @@ if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdT
     corrRows++;
 }
 
-
-
 // column 1 ================
 for (let i = 0; i < colOne.length; i++) {         // loop som tar ut id / värde ur rad 2
     brickIdOne = colOne[0].id;
@@ -331,7 +320,6 @@ for (let i = 0; i < colOne.length; i++) {         // loop som tar ut id / värde
     brickIdThree = colOne[2].id;
     brickIdFour = colOne[3].id;
         }
-
         var brickIdOneNum = parseInt(brickIdOne, 10);
         var brickIdTwoNum = parseInt(brickIdTwo, 10);
         var brickIdThreeNum = parseInt(brickIdThree, 10);
@@ -349,7 +337,6 @@ if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdT
         brickIdThree = colTwo[2].id;
         brickIdFour = colTwo[3].id;
             }
-    
             var brickIdOneNum = parseInt(brickIdOne, 10);
             var brickIdTwoNum = parseInt(brickIdTwo, 10);
             var brickIdThreeNum = parseInt(brickIdThree, 10);
@@ -367,7 +354,6 @@ for (let i = 0; i < colThree.length; i++) {         // loop som tar ut id / vär
     brickIdThree = colThree[2].id;
     brickIdFour = colThree[3].id;
         }
-
         var brickIdOneNum = parseInt(brickIdOne, 10);
         var brickIdTwoNum = parseInt(brickIdTwo, 10);
         var brickIdThreeNum = parseInt(brickIdThree, 10);
@@ -385,7 +371,6 @@ for (let i = 0; i < colFour.length; i++) {         // loop som tar ut id / värd
     brickIdThree = colFour[2].id;
     brickIdFour = colFour[3].id;
         }
-
         var brickIdOneNum = parseInt(brickIdOne, 10);
         var brickIdTwoNum = parseInt(brickIdTwo, 10);
         var brickIdThreeNum = parseInt(brickIdThree, 10);
