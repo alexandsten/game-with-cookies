@@ -89,7 +89,6 @@ function addBricks() {
     brickHolder[i].id = ix;
  /*   brickHolder[i].classList.remove("empty"); */
     numberList.splice(r,1); 
-    console.log(numberList);
     }
     for (let i = 0; i < brickHolder.length; i++) {
         brickHolder[i].classList.remove("empty");
@@ -191,8 +190,6 @@ function endGame() {
     col3 = document.getElementById("c3mark"); col4 = document.getElementById("c4mark");
 
     //rader och kolumner får img element från init
-    /* row1.innerHTML = "&check;";
-    col3.innerHTML = "&cross;"; */
     row1.innerHTML = "&cross;";
     row2.innerHTML = "&cross;";
     row3.innerHTML = "&cross;";
@@ -232,7 +229,7 @@ function endGame() {
     if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdThreeNum < brickIdFourNum) {
         row1.innerHTML = "&check;";
         totalPoints++;
-        totalPointsElem.innerHTML = totalPoints; 
+        totalPointsElem.innerHTML += totalPoints; 
     }
 // rad 2 ================
     for (let i = 0; i < rowTwo.length; i++) {         // loop som tar ut id / värde ur rad 2
@@ -249,7 +246,7 @@ function endGame() {
     if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdThreeNum < brickIdFourNum) {
         row2.innerHTML = "&check;";
         totalPoints++;
-        totalPointsElem.innerHTML = totalPoints;
+        totalPointsElem.innerHTML += totalPoints;
     }
 // rad 3 ================
 for (let i = 0; i < rowThree.length; i++) {         // loop som tar ut id / värde ur rad 2
@@ -266,7 +263,7 @@ for (let i = 0; i < rowThree.length; i++) {         // loop som tar ut id / vär
 if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdThreeNum < brickIdFourNum) {
     row3.innerHTML = "&check;";
     totalPoints++;
-    totalPointsElem.innerHTML = totalPoints;
+    totalPointsElem.innerHTML += totalPoints;
 }
 // rad 4 ================
 for (let i = 0; i < rowFour.length; i++) {         // loop som tar ut id / värde ur rad 2
@@ -283,7 +280,7 @@ for (let i = 0; i < rowFour.length; i++) {         // loop som tar ut id / värd
 if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdThreeNum < brickIdFourNum) {
     row4.innerHTML = "&check;";
     totalPoints++;
-    totalPointsElem.innerHTML = totalPoints;
+    totalPointsElem.innerHTML += totalPoints;
 }
 
 
@@ -303,7 +300,7 @@ for (let i = 0; i < colOne.length; i++) {         // loop som tar ut id / värde
 if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdThreeNum < brickIdFourNum) {
     col1.innerHTML = "&check;";
     totalPoints++;
-    totalPointsElem.innerHTML = totalPoints;
+    totalPointsElem.innerHTML += totalPoints;
 }
 // column 2 ================
     for (let i = 0; i < colTwo.length; i++) {         // loop som tar ut id / värde ur rad 2
@@ -320,7 +317,7 @@ if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdT
     if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdThreeNum < brickIdFourNum) {
         col2.innerHTML = "&check;";
         totalPoints++;
-        totalPointsElem.innerHTML = totalPoints;
+        totalPointsElem.innerHTML += totalPoints;
     }
 // column 3 ================
 for (let i = 0; i < colThree.length; i++) {         // loop som tar ut id / värde ur rad 2
@@ -337,7 +334,7 @@ for (let i = 0; i < colThree.length; i++) {         // loop som tar ut id / vär
 if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdThreeNum < brickIdFourNum) {
     col3.innerHTML = "&check;";
     totalPoints++;
-    totalPointsElem.innerHTML = totalPoints;
+    totalPointsElem.innerHTML += totalPoints;
 }
 // column 4 ================
 for (let i = 0; i < colFour.length; i++) {         // loop som tar ut id / värde ur rad 2
@@ -354,7 +351,7 @@ for (let i = 0; i < colFour.length; i++) {         // loop som tar ut id / värd
 if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdThreeNum < brickIdFourNum) {
     col4.innerHTML = "&check;";
     totalPoints++;
-    totalPointsElem.innerHTML = totalPoints;
+    totalPointsElem.innerHTML += totalPoints;
 }
 
 }
