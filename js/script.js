@@ -23,6 +23,8 @@ var messageElem;        // meddelande till spelaren
 var numberList;     //alla bricknummer kopieras till denna array
 var finalCount;     // nedräkning till endGame
 
+var numberGames;
+
 
 //========== Init ===============//
 
@@ -58,6 +60,9 @@ newBricksBtn.disabled = true;
 
 totalPoints = 0;
 totalPointsElem.innerHTML = 0;
+numberGames = 0;
+numberGames.innerHTML = 0;
+
 getData();
 }
 // ==== hämta cookie ===== //
@@ -69,7 +74,7 @@ function getData() {
 		let text = decodeURIComponent(dataArr[0]); // Texten
 		let textTwo = decodeURIComponent(dataArr[1]); // Array med färgerna 
         totalPoints = text;
-        totalGames = textTwo;
+        numberGames = textTwo;
 		}
 	}
  // End getData
@@ -376,7 +381,7 @@ if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdT
 }
 function SetKakan() {
     let text = totalPoints; // Texten i formuläret
-    let textTwo = totalGames; // Texten i formuläret 
+    let textTwo = numberGames; // Texten i formuläret 
     let theData = encodeURIComponent(text) + "&" + encodeURIComponent(textTwo);
         setCookie("kakan",theData,30);	// Datan sparas i en cookie
         location.href = "index.html";
