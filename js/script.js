@@ -203,7 +203,7 @@ function endGame() {
     var brickIdThree;
     var brickIdFour;
 // rad 1 ======================================
-    for (let i = 0; i < rowOne.length; i++) {         // loop som tar ut id / värde ur rad 2
+    for (let i = 0; i < rowOne.length; i++) {         // loop som tar ut id / värde ur rad 1
         brickIdOne = rowOne[0].id;
         brickIdTwo = rowOne[1].id;
         brickIdThree = rowOne[2].id;
@@ -237,7 +237,7 @@ function endGame() {
         corrRows++;
     }
 // rad 3 ================
-for (let i = 0; i < rowThree.length; i++) {         // loop som tar ut id / värde ur rad 2
+for (let i = 0; i < rowThree.length; i++) {         // loop som tar ut id / värde ur rad 3
     brickIdOne = rowThree[0].id;
     brickIdTwo = rowThree[1].id;
     brickIdThree = rowThree[2].id;
@@ -254,7 +254,7 @@ if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdT
     corrRows++;
 }
 // rad 4 ================
-for (let i = 0; i < rowFour.length; i++) {         // loop som tar ut id / värde ur rad 2
+for (let i = 0; i < rowFour.length; i++) {         // loop som tar ut id / värde ur rad 4
     brickIdOne = rowFour[0].id;
     brickIdTwo = rowFour[1].id;
     brickIdThree = rowFour[2].id;
@@ -272,7 +272,7 @@ if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdT
 }
 
 // column 1 ================
-for (let i = 0; i < colOne.length; i++) {         // loop som tar ut id / värde ur rad 2
+for (let i = 0; i < colOne.length; i++) {         // loop som tar ut id / värde ur column 1
     brickIdOne = colOne[0].id;
     brickIdTwo = colOne[1].id;
     brickIdThree = colOne[2].id;
@@ -289,7 +289,7 @@ if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdT
     corrRows++;
 }
 // column 2 ================
-    for (let i = 0; i < colTwo.length; i++) {         // loop som tar ut id / värde ur rad 2
+    for (let i = 0; i < colTwo.length; i++) {         // loop som tar ut id / värde ur column 2
         brickIdOne = colTwo[0].id;
         brickIdTwo = colTwo[1].id;
         brickIdThree = colTwo[2].id;
@@ -306,7 +306,7 @@ if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdT
         corrRows++;
     }
 // column 3 ================
-for (let i = 0; i < colThree.length; i++) {         // loop som tar ut id / värde ur rad 2
+for (let i = 0; i < colThree.length; i++) {         // loop som tar ut id / värde ur column 3
     brickIdOne = colThree[0].id;
     brickIdTwo = colThree[1].id;
     brickIdThree = colThree[2].id;
@@ -323,7 +323,7 @@ if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdT
     corrRows++;
 }
 // column 4 ================
-for (let i = 0; i < colFour.length; i++) {         // loop som tar ut id / värde ur rad 2
+for (let i = 0; i < colFour.length; i++) {         // loop som tar ut id / värde ur column 4
     brickIdOne = colFour[0].id;
     brickIdTwo = colFour[1].id;
     brickIdThree = colFour[2].id;
