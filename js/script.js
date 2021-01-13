@@ -65,10 +65,11 @@ getData();
 function getData() {
 	let dataStr = getCookie("kakan"); // Cookiens innehåll, om den finns, annars null
 	if (dataStr != null) {
-	/*	let dataArr = dataStr.split("&"); // Array med datan uppdelat
+		let dataArr = dataStr.split("&"); // Array med datan uppdelat
 		let text = decodeURIComponent(dataArr[0]); // Texten
-		let colors = decodeURIComponent(dataArr[1]).split(","); // Array med färgerna */
-		totalPoints = text;
+		let textTwo = decodeURIComponent(dataArr[1]); // Array med färgerna 
+        totalPoints = text;
+        totalGames = textTwo;
 		}
 	}
  // End getData
