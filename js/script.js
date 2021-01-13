@@ -71,7 +71,7 @@ function getData() {
 		totalPoints = text;
 		}
 	}
-} // End getData
+ // End getData
 
 //==============================//
 
