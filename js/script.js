@@ -149,7 +149,7 @@ function brickOverEmpty(e) {
         dragBrickElem.src = "img/empty.png";
         dragBrickElem.classList.add("empty");
         dragBrickElem.classList.remove("brick");
-        dragBrickElem.draggable = false; 
+     /*   dragBrickElem.draggable = false; */
         //  ta bort dragfunktioner för bricka på spelplan
         for (let i = 0; i < gameBoardBrick.length; i++) { 
             gameBoardBrick[i].removeEventListener("dragover",brickOverEmpty);
