@@ -195,13 +195,22 @@ function endGame() {
     col3.innerHTML = "&cross;"; */
     row1.innerHTML = "&cross;";
     row2.innerHTML = "&cross;";
+    row3.innerHTML = "&cross;";
+    row4.innerHTML = "&cross;";
+    col1.innerHTML = "&cross;";
     col2.innerHTML = "&cross;";
+    col3.innerHTML = "&cross;";
+    col4.innerHTML = "&cross;";
 
     //rader och kolumner till variabler
      var rowOne = document.getElementById("board").getElementsByClassName("r1");  
      var rowTwo = document.getElementById("board").getElementsByClassName("r2");
+     var rowThree = document.getElementById("board").getElementsByClassName("r3");
+     var rowFour = document.getElementById("board").getElementsByClassName("r4");
+     var colOne = document.getElementById("board").getElementsByClassName("c1");
      var colTwo = document.getElementById("board").getElementsByClassName("c2");
      var colThree = document.getElementById("board").getElementsByClassName("c3");
+     var colFour = document.getElementById("board").getElementsByClassName("c4");
     // få fram värde ur brickor (den måste ju gå igenom brickorna för att komma åt värdena, annars stannar det bara på en bricka)
 
     var brickIdOne;
@@ -242,6 +251,24 @@ function endGame() {
         totalPoints++;
         totalPointsElem.innerHTML = totalPoints;
     }
+
+// column 1 ================
+for (let i = 0; i < colOne.length; i++) {         // loop som tar ut id / värde ur rad 2
+    brickIdOne = colOne[0].id;
+    brickIdTwo = colOne[1].id;
+    brickIdThree = colOne[2].id;
+    brickIdFour = colOne[3].id;
+        }
+
+        var brickIdOneNum = parseInt(brickIdOne, 10);
+        var brickIdTwoNum = parseInt(brickIdTwo, 10);
+        var brickIdThreeNum = parseInt(brickIdThree, 10);
+        var brickIdFourNum = parseInt(brickIdFour, 10);
+if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdThreeNum < brickIdFourNum) {
+    col1.innerHTML = "&check;";
+    totalPoints++;
+    totalPointsElem.innerHTML = totalPoints;
+}
 // column 2 ================
     for (let i = 0; i < colTwo.length; i++) {         // loop som tar ut id / värde ur rad 2
         brickIdOne = colTwo[0].id;
