@@ -199,8 +199,6 @@ function endGame() {
 
     var rowTwo = document.getElementById("board").getElementsByClassName("r2");
     // få fram värde ur brickor (den måste ju gå igenom brickorna för att komma åt värdena, annars stannar det bara på en bricka)
-    var brickId; // brickans id nummer / värde
-    var rowTwoBricks = [];
 
     var brickIdOne;
     var brickIdTwo;
@@ -213,7 +211,6 @@ function endGame() {
         brickIdTwo = rowTwo[1].id;
         brickIdThree = rowTwo[2].id;
         brickIdFour = rowTwo[3].id;
-        rowTwoBricks.push(brickId);
             }
     
             var brickIdOnea = parseInt(brickIdOne, 10);
@@ -226,15 +223,7 @@ function endGame() {
         totalPoints++;
         totalPointsElem.innerHTML = totalPoints;
     }
-   /* if (brickIdOnea < brickIdThreea) {
-        alert("id " + brickIdOnea + " minre än "+  brickIdThreea + " loop?");
-    }
-    if (brickIdThreea < brickIdTwoa) {
-        alert("id " + brickIdThreea + " minre än "+   brickIdTwoa + " loop?");
-    }
-    if (brickIdOnea < brickIdFoura) {
-        alert("id " + brickIdOnea + " minre än "+   brickIdFoura + " loop");
-    } */
+
 }
 
 
