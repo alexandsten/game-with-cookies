@@ -1,76 +1,53 @@
 // Globala konstanter och variabler
 //array för 1-40 brickor
 const allBricks = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37","38", "39", "40"]; 
-
 var brickElem;   //bricka som flyttas, kan byta class mellan front och back
-
 var dragBrickElem; //den brickan som blir dragen
-
 var brickHolder;  //där fyra nya brickor visas
 var brickHolderCount; // räknar antalet brickor
 var gameBoard;   //alla empty brickor
 var gameBoardTag; // grabba vid tag
-
 var markElem;    //markerar om raden är korrekt
-
 var newGameBtn;      //knapp för nytt spel
 var newBricksBtn;    //knapp för nya brickor
-
 var numberGames;     //antal spel
 var numberGamesElem; //antal spel element
-
+var totalPoints;          // siffran för det totala antalet poäng
 var totalPointsElem;     //det totala antalet poäng, sparas med hjälp av cookies
-
 var messageElem;        // meddelande till spelaren
-
 var numberList;     //alla bricknummer kopieras till denna array
 var finalCount;     // nedräkning till endGame
+
 //========== Init ===============//
-
 function init() {
-
 newGameBtn = document.getElementById("newGameBtn");
 newBricksBtn  = document.getElementById("newBricksBtn");
-
 gameBoard = document.getElementById("board").
 getElementsByClassName("empty");
-
 gameBoardBrick = document.getElementById("board").
 getElementsByClassName("brick");
-
 gameBoardTag = document.getElementById("board").
 getElementsByTagName("img");
-
 brickHolder = document.getElementById("newBricks").
 getElementsByClassName("empty");
-
 brickHolderId = document.getElementById("newBricks");
-
-
 numberGames = document.getElementById("countGames");
 totalPointsElem = document.getElementById("totPoints");
-
 newGameBtn.addEventListener("click",startGame);
 newBricksBtn.addEventListener("click",addBricks);
-
 markElem = document.getElementById("board").
 getElementsByClassName("mark");
-
 messageElem = document.getElementById("message");
-
 numberGamesElem = document.getElementById("countGames")
-
 newBricksBtn.disabled = true;
-
 totalPoints = 0;
 totalPointsElem.innerHTML = 0;
 numberGames = 0;
 numberGamesElem.innerHTML = 0;
-
 getData();
 }
-// ==== hämta cookie ===== //
 
+// ==== hämta cookie ===== //
 function getData() {
 	let dataStr = getCookie("kakan"); // Cookiens innehåll, om den finns, annars null
 	if (dataStr != null) {
@@ -90,7 +67,7 @@ function getData() {
 window.addEventListener("load",init); 		// Se till att init aktiveras då sidan är inladdad
 
 //======= start game =========//
-//Funktion som ** 
+//Funktion som gör spelet redo, med knappar, array och räknare
 function startGame() {
     newGameBtn.disabled = true;
     newBricksBtn.disabled = false;
@@ -102,7 +79,6 @@ function startGame() {
 //===========================//
 
 //======= newBricks ========//
-
 function addBricks() {  
    //här måste jag få fram 4 front brickor med varsit nummer från arrayen
     newBricksBtn.disabled = true;
@@ -115,8 +91,8 @@ function addBricks() {
     brickHolder[i].draggable = true; 
     ix = numberList[r];
     brickHolder[i].id = ix;
- /*   brickHolder[i].classList.remove("empty"); */
     numberList.splice(r,1); 
+    // ta bort classen empty från de nya brickorna
     }
     for (let i = 0; i < brickHolder.length; i++) {
         brickHolder[i].classList.remove("empty");
@@ -130,10 +106,7 @@ function addBricks() {
     brickHolderCount = 4;
 }
 //=========================//
-
 //======= drag start brick =====//
-
-
 function dragStartBrick(e) {
     for (let i = 0; i < gameBoard.length; i++) {
         gameBoard[i].addEventListener("dragover",brickOverEmpty);
@@ -143,12 +116,8 @@ function dragStartBrick(e) {
         dragBrickElem = this;
     }
 }
-
 // ==========================//
-
-
 //======= drag end brick =====//
-
 function dragEndBrick(e) {
     for (let i = 0; i < gameBoard.length; i++) {
         gameBoard[i].removeEventListener("dragover",brickOverEmpty);
@@ -159,9 +128,7 @@ function dragEndBrick(e) {
         brickHolder[i].removeEventListener("dragstart",dragStartBrick);
      }
 }
-
 // ==========================//
-
 // ======== bricka över tom bricka ======//
 
 function brickOverEmpty(e) {
@@ -187,16 +154,13 @@ function brickOverEmpty(e) {
     }
 }
 //==============================//
-
 //========== brick leave empty =====//
 
 function brickLeaveEmpty(e) {
     this.style.backgroundColor = "";
 }
 //===============================
-
 //===== counters =============
-
 function finalCounter() {  
     if (brickHolderCount<1) {
         newBricksBtn.disabled = false;
@@ -206,19 +170,15 @@ function finalCounter() {
     }
     finalCount--;
 }
-
 // ======== end game ==========//
-
 function endGame() {
     // rätta rader
     var corrRows = 0;
     //rader och kolumner blir variabler
     row1 = document.getElementById("r1mark"); row2 = document.getElementById("r2mark");
     row3 = document.getElementById("r3mark"); row4 = document.getElementById("r4mark");
-
     col1 = document.getElementById("c1mark"); col2 = document.getElementById("c2mark");
     col3 = document.getElementById("c3mark"); col4 = document.getElementById("c4mark");
-
     //rader och kolumner får img element från init
     row1.innerHTML = "&cross;";
     row2.innerHTML = "&cross;";
@@ -228,7 +188,6 @@ function endGame() {
     col2.innerHTML = "&cross;";
     col3.innerHTML = "&cross;";
     col4.innerHTML = "&cross;";
-
     //rader och kolumner till variabler
      var rowOne = document.getElementById("board").getElementsByClassName("r1");  
      var rowTwo = document.getElementById("board").getElementsByClassName("r2");
@@ -239,7 +198,6 @@ function endGame() {
      var colThree = document.getElementById("board").getElementsByClassName("c3");
      var colFour = document.getElementById("board").getElementsByClassName("c4");
     // få fram värde ur brickor (den måste ju gå igenom brickorna för att komma åt värdena, annars stannar det bara på en bricka)
-
     var brickIdOne;
     var brickIdTwo;
     var brickIdThree;
@@ -385,7 +343,6 @@ if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdT
 numberGames++;
 numberGamesElem.innerHTML = numberGames;
     SetKakan(); //==== sätt en cookie för spelets resultat
-
 }
 //================
     function SetKakan() {
