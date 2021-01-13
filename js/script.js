@@ -413,8 +413,8 @@ numberGamesElem.innerHTML = numberGames;
     // ==== testa med nytt spel //
     newGameBtn.addEventListener("click",startAnotherGame);
 }
-//=============================//
-function startAnotherGame() {
+//================= gör allt redo för en ny omgång ============//
+function startAnotherGame() {       // rensa bort alla resultat och brickor, så att spelaren kan börja om på nytt
    /* location.href = "index.html"; */
    for (let i = 0; i < gameBoardTag.length; i++) { 
     gameBoardTag[i].removeEventListener("drop",brickOverEmpty);
