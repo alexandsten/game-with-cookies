@@ -16,6 +16,8 @@ var newGameBtn;      //knapp för nytt spel
 var newBricksBtn;    //knapp för nya brickor
 
 var numberGames;     //antal spel
+var numberGamesElem; //antal spel element
+
 var totalPointsElem;     //det totala antalet poäng, sparas med hjälp av cookies
 
 var messageElem;        // meddelande till spelaren
@@ -23,7 +25,7 @@ var messageElem;        // meddelande till spelaren
 var numberList;     //alla bricknummer kopieras till denna array
 var finalCount;     // nedräkning till endGame
 
-var numberGames;
+
 
 
 //========== Init ===============//
@@ -56,12 +58,14 @@ getElementsByClassName("mark");
 
 messageElem = document.getElementById("message");
 
+numberGamesElem = document.getElementById("countGames")
+
 newBricksBtn.disabled = true;
 
 totalPoints = 0;
 totalPointsElem.innerHTML = 0;
 numberGames = 0;
-numberGames.innerHTML = 0;
+numberGamesElem.innerHTML = 0;
 
 getData();
 }
@@ -74,7 +78,9 @@ function getData() {
 		let text = decodeURIComponent(dataArr[0]); // Texten
 		let textTwo = decodeURIComponent(dataArr[1]); // Array med färgerna 
         totalPoints = text;
+        totalPointsElem.innerHTML = totalPoints;
         numberGames = textTwo;
+        numberGamesElem.innerHTML = numberGames;
 		}
 	}
  // End getData
@@ -375,7 +381,8 @@ if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdT
     totalPoints++;
     totalPointsElem.innerHTML = totalPoints;
     }
-
+numberGames++;
+numberGamesElem.innerHTML = numberGames;
  SetKakan();
 
 }
