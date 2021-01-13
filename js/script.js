@@ -81,6 +81,7 @@ function getData() {
         totalPointsElem.innerHTML = totalPoints;
         numberGames = textTwo;
         numberGamesElem.innerHTML = numberGames;
+        startGame();
 		}
 	}
  // End getData
@@ -383,15 +384,20 @@ if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdT
     }
 numberGames++;
 numberGamesElem.innerHTML = numberGames;
- SetKakan();
+    SetKakan(); //==== sätt en cookie för spelets resultat
 
 }
-function SetKakan() {
+//================
+    function SetKakan() {
     let text = totalPoints; // Texten i formuläret
     let textTwo = numberGames; // Texten i formuläret 
     let theData = encodeURIComponent(text) + "&" + encodeURIComponent(textTwo);
         setCookie("kakan",theData,30);	// Datan sparas i en cookie
-        location.href = "index.html";
-    
+    newGameBtn.disabled = false;
+    newBricksBtn.disabled = true;
+    newGameBtn.addEventListener("click",startAnotherGame);
 }
 //=============================//
+function startAnotherGame() {
+    location.href = "index.html";
+}
