@@ -392,5 +392,6 @@ function SetKakan() {
     let theData = encodeURIComponent(text) + "&" + encodeURIComponent(textTwo);
         setCookie("kakan",theData,30);	// Datan sparas i en cookie
         location.href = "index.html";
-    }
+    
+}
 //=============================//
