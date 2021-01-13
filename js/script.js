@@ -65,13 +65,10 @@ getData();
 function getData() {
 	let dataStr = getCookie("kakan"); // Cookiens innehåll, om den finns, annars null
 	if (dataStr != null) {
-		let dataArr = dataStr.split("&"); // Array med datan uppdelat
+	/*	let dataArr = dataStr.split("&"); // Array med datan uppdelat
 		let text = decodeURIComponent(dataArr[0]); // Texten
-		let colors = decodeURIComponent(dataArr[1]).split(","); // Array med färgerna
-		formElem.text.value = text;
-		for (let i = 0; i < formElem.color.length; i++) {
-			if (colors.indexOf(formElem.color[i].value) != -1) formElem.color[i].checked = true;
-			else formElem.color[i].checked = false;
+		let colors = decodeURIComponent(dataArr[1]).split(","); // Array med färgerna */
+		totalPoints = text;
 		}
 	}
 } // End getData
@@ -377,10 +374,10 @@ if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdT
 
 }
 function SetKakan() {
-    let text = totalPoints.text.value; // Texten i formuläret
-    let textTwo = formElem.text.value; // Texten i formuläret 
-    let theData = encodeURIComponent(text) + "&" + encodeURIComponent(totalGames);
+    let text = totalPoints; // Texten i formuläret
+    let textTwo = totalGames; // Texten i formuläret 
+    let theData = encodeURIComponent(text) + "&" + encodeURIComponent(textTwo);
         setCookie("kakan",theData,30);	// Datan sparas i en cookie
-        location.href = "inxex.html";
+        location.href = "index.html";
     }
 //=============================//
