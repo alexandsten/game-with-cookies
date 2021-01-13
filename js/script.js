@@ -16,7 +16,7 @@ var newGameBtn;      //knapp för nytt spel
 var newBricksBtn;    //knapp för nya brickor
 
 var numberGames;     //antal spel
-var totalPoints;     //det totala antalet poäng, sparas med hjälp av cookies
+var totalPointsElem;     //det totala antalet poäng, sparas med hjälp av cookies
 
 var messageElem;        // meddelande till spelaren
 
@@ -44,7 +44,7 @@ brickHolderId = document.getElementById("newBricks");
 
 
 numberGames = document.getElementById("countGames");
-totalPoints = document.getElementById("totPoints");
+totalPointsElem = document.getElementById("totPoints");
 
 newGameBtn.addEventListener("click",startGame);
 newBricksBtn.addEventListener("click",addBricks);
@@ -68,7 +68,8 @@ function startGame() {
     numberList = allBricks.slice(0);
     brickHolderCount = 0;
     finalCount = 15;
-    totalPoints.innerHTML = 0;
+    totalPoints = 0;
+    totalPointsElem.innerHTML = 0;
 }
 
 //===========================//
@@ -220,8 +221,10 @@ function endGame() {
             var brickIdThreea = parseInt(brickIdThree, 10);
             var brickIdFoura = parseInt(brickIdFour, 10);
     if (brickIdOnea < brickIdTwoa && brickIdTwoa < brickIdThreea && brickIdThreea < brickIdFoura) {
-        messageElem.innerHTML = "id " + brickIdOnea + " minre än " + brickIdTwoa + " minre än " + brickIdThreea + " minre än " + brickIdFoura + " bra!";
+        messageElem.innerHTML = "id " + brickIdOnea + " mindre än " + brickIdTwoa + " mindre än " + brickIdThreea + " mindre än " + brickIdFoura + " bra!";
         row2.innerHTML = "&check;";
+        totalPoints++;
+        totalPointsElem.innerHTML = totalPoints;
     }
    /* if (brickIdOnea < brickIdThreea) {
         alert("id " + brickIdOnea + " minre än "+  brickIdThreea + " loop?");
