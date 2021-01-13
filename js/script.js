@@ -8,7 +8,8 @@ var dragBrickElem; //den brickan som blir dragen
 
 var brickHolder;  //där fyra nya brickor visas
 var brickHolderCount; // räknar antalet brickor
-var gameBoard;   //planen där alla brickor ska placeras
+var gameBoard;   //alla empty brickor
+var gameBoardTag; // grabba vid tag
 
 var markElem;    //markerar om raden är korrekt
 
@@ -40,6 +41,9 @@ getElementsByClassName("empty");
 
 gameBoardBrick = document.getElementById("board").
 getElementsByClassName("brick");
+
+gameBoardTag = document.getElementById("board").
+getElementsByTagName("img");
 
 brickHolder = document.getElementById("newBricks").
 getElementsByClassName("empty");
@@ -96,6 +100,7 @@ function startGame() {
     newGameBtn.disabled = true;
     newBricksBtn.disabled = false;
     numberList = allBricks.slice(0);
+    console.log(numberList);
     brickHolderCount = 0;
     finalCount = 15;
 }
@@ -211,6 +216,8 @@ function finalCounter() {
 // ======== end game ==========//
 
 function endGame() {
+    // rätta rader
+    var corrRows = 0;
     //rader och kolumner blir variabler
     row1 = document.getElementById("r1mark"); row2 = document.getElementById("r2mark");
     row3 = document.getElementById("r3mark"); row4 = document.getElementById("r4mark");
@@ -259,6 +266,7 @@ function endGame() {
         row1.innerHTML = "&check;";
         totalPoints++;
         totalPointsElem.innerHTML = totalPoints;
+        corrRows++;
     }
 // rad 2 ================
     for (let i = 0; i < rowTwo.length; i++) {         // loop som tar ut id / värde ur rad 2
@@ -276,6 +284,7 @@ function endGame() {
         row2.innerHTML = "&check;";
         totalPoints++;
         totalPointsElem.innerHTML = totalPoints;
+        corrRows++;
     }
 // rad 3 ================
 for (let i = 0; i < rowThree.length; i++) {         // loop som tar ut id / värde ur rad 2
@@ -293,6 +302,7 @@ if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdT
     row3.innerHTML = "&check;";
     totalPoints++;
     totalPointsElem.innerHTML = totalPoints;
+    corrRows++;
 }
 // rad 4 ================
 for (let i = 0; i < rowFour.length; i++) {         // loop som tar ut id / värde ur rad 2
@@ -310,6 +320,7 @@ if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdT
     row4.innerHTML = "&check;";
     totalPoints++;
     totalPointsElem.innerHTML = totalPoints;
+    corrRows++;
 }
 
 
@@ -330,6 +341,7 @@ if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdT
     col1.innerHTML = "&check;";
     totalPoints++;
     totalPointsElem.innerHTML = totalPoints;
+    corrRows++;
 }
 // column 2 ================
     for (let i = 0; i < colTwo.length; i++) {         // loop som tar ut id / värde ur rad 2
@@ -347,6 +359,7 @@ if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdT
         col2.innerHTML = "&check;";
         totalPoints++;
         totalPointsElem.innerHTML = totalPoints;
+        corrRows++;
     }
 // column 3 ================
 for (let i = 0; i < colThree.length; i++) {         // loop som tar ut id / värde ur rad 2
@@ -364,6 +377,7 @@ if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdT
     col3.innerHTML = "&check;";
     totalPoints++;
     totalPointsElem.innerHTML = totalPoints;
+    corrRows++;
 }
 // column 4 ================
 for (let i = 0; i < colFour.length; i++) {         // loop som tar ut id / värde ur rad 2
@@ -381,7 +395,9 @@ if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdT
     col4.innerHTML = "&check;";
     totalPoints++;
     totalPointsElem.innerHTML = totalPoints;
+    corrRows++;
     }
+    messageElem.innerHTML = "Du fick " + corrRows + " antal rader korrekt.";
 numberGames++;
 numberGamesElem.innerHTML = numberGames;
     SetKakan(); //==== sätt en cookie för spelets resultat
@@ -395,9 +411,29 @@ numberGamesElem.innerHTML = numberGames;
         setCookie("kakan",theData,30);	// Datan sparas i en cookie
     newGameBtn.disabled = false;
     newBricksBtn.disabled = true;
+    // ==== testa med nytt spel //
     newGameBtn.addEventListener("click",startAnotherGame);
 }
 //=============================//
 function startAnotherGame() {
-    location.href = "index.html";
+   /* location.href = "index.html"; */
+   for (let i = 0; i < gameBoardTag.length; i++) { 
+    gameBoardTag[i].removeEventListener("drop",brickOverEmpty);
+    gameBoardTag[i].removeEventListener("dragover",brickOverEmpty);
+    gameBoardTag[i].classList.add("empty");
+    gameBoardTag[i].classList.remove("brick");
+    gameBoardTag[i].id = "";
+    } 
+    for (let i = 0; i < gameBoard.length; i++) {
+        gameBoardTag[i].src = "img/empty.png";
+    }
+    row1.innerHTML = "";
+    row2.innerHTML = "";
+    row3.innerHTML = "";
+    row4.innerHTML = "";
+    col1.innerHTML = "";
+    col2.innerHTML = "";
+    col3.innerHTML = "";
+    col4.innerHTML = "";
+    messageElem.innerHTML = "";
 }
