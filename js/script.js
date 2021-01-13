@@ -55,7 +55,27 @@ getElementsByClassName("mark");
 messageElem = document.getElementById("message");
 
 newBricksBtn.disabled = true;
+
+totalPoints = 0;
+totalPointsElem.innerHTML = 0;
+getData();
 }
+// ==== hämta cookie ===== //
+
+function getData() {
+	let dataStr = getCookie("kakan"); // Cookiens innehåll, om den finns, annars null
+	if (dataStr != null) {
+		let dataArr = dataStr.split("&"); // Array med datan uppdelat
+		let text = decodeURIComponent(dataArr[0]); // Texten
+		let colors = decodeURIComponent(dataArr[1]).split(","); // Array med färgerna
+		formElem.text.value = text;
+		for (let i = 0; i < formElem.color.length; i++) {
+			if (colors.indexOf(formElem.color[i].value) != -1) formElem.color[i].checked = true;
+			else formElem.color[i].checked = false;
+		}
+	}
+} // End getData
+
 //==============================//
 
 window.addEventListener("load",init); 		// Se till att init aktiveras då sidan är inladdad
@@ -68,8 +88,6 @@ function startGame() {
     numberList = allBricks.slice(0);
     brickHolderCount = 0;
     finalCount = 15;
-    totalPoints = 0;
-    totalPointsElem.innerHTML = 0;
 }
 
 //===========================//
@@ -354,7 +372,15 @@ if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdT
     totalPoints++;
     totalPointsElem.innerHTML = totalPoints;
     }
+
+ SetKakan();
+
 }
-
-
+function SetKakan() {
+    let text = formElem.text.value; // Texten i formuläret
+    let text = formElem.text.value; // Texten i formuläret
+    let theData = encodeURIComponent(text) + "&" + encodeURIComponent(totalGames);
+        setCookie("kakan",theData,30);	// Datan sparas i en cookie
+        location.href = "inxex.html";
+    }
 //=============================//
