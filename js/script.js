@@ -85,7 +85,6 @@ function getData() {
         totalPointsElem.innerHTML = totalPoints;
         numberGames = textTwo;
         numberGamesElem.innerHTML = numberGames;
-        startGame();
 		}
 	}
  // End getData
