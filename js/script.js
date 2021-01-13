@@ -251,6 +251,42 @@ function endGame() {
         totalPoints++;
         totalPointsElem.innerHTML = totalPoints;
     }
+// rad 3 ================
+for (let i = 0; i < rowThree.length; i++) {         // loop som tar ut id / värde ur rad 2
+    brickIdOne = rowThree[0].id;
+    brickIdTwo = rowThree[1].id;
+    brickIdThree = rowThree[2].id;
+    brickIdFour = rowThree[3].id;
+        }
+
+        var brickIdOneNum = parseInt(brickIdOne, 10);
+        var brickIdTwoNum = parseInt(brickIdTwo, 10);
+        var brickIdThreeNum = parseInt(brickIdThree, 10);
+        var brickIdFourNum = parseInt(brickIdFour, 10);
+if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdThreeNum < brickIdFourNum) {
+    row3.innerHTML = "&check;";
+    totalPoints++;
+    totalPointsElem.innerHTML = totalPoints;
+}
+// rad 4 ================
+for (let i = 0; i < rowFour.length; i++) {         // loop som tar ut id / värde ur rad 2
+    brickIdOne = rowFour[0].id;
+    brickIdTwo = rowFour[1].id;
+    brickIdThree = rowFour[2].id;
+    brickIdFour = rowFour[3].id;
+        }
+
+        var brickIdOneNum = parseInt(brickIdOne, 10);
+        var brickIdTwoNum = parseInt(brickIdTwo, 10);
+        var brickIdThreeNum = parseInt(brickIdThree, 10);
+        var brickIdFourNum = parseInt(brickIdFour, 10);
+if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdThreeNum < brickIdFourNum) {
+    row4.innerHTML = "&check;";
+    totalPoints++;
+    totalPointsElem.innerHTML = totalPoints;
+}
+
+
 
 // column 1 ================
 for (let i = 0; i < colOne.length; i++) {         // loop som tar ut id / värde ur rad 2
@@ -300,6 +336,23 @@ for (let i = 0; i < colThree.length; i++) {         // loop som tar ut id / vär
         var brickIdFourNum = parseInt(brickIdFour, 10);
 if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdThreeNum < brickIdFourNum) {
     col3.innerHTML = "&check;";
+    totalPoints++;
+    totalPointsElem.innerHTML = totalPoints;
+}
+// column 4 ================
+for (let i = 0; i < colFour.length; i++) {         // loop som tar ut id / värde ur rad 2
+    brickIdOne = colFour[0].id;
+    brickIdTwo = colFour[1].id;
+    brickIdThree = colFour[2].id;
+    brickIdFour = colFour[3].id;
+        }
+
+        var brickIdOneNum = parseInt(brickIdOne, 10);
+        var brickIdTwoNum = parseInt(brickIdTwo, 10);
+        var brickIdThreeNum = parseInt(brickIdThree, 10);
+        var brickIdFourNum = parseInt(brickIdFour, 10);
+if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdThreeNum < brickIdFourNum) {
+    col4.innerHTML = "&check;";
     totalPoints++;
     totalPointsElem.innerHTML = totalPoints;
 }
