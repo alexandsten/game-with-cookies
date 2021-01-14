@@ -271,7 +271,6 @@ if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdT
     totalPointsElem.innerHTML = totalPoints;
     corrRows++;
 }
-
 // column 1 ================
 for (let i = 0; i < colOne.length; i++) {         // loop som tar ut id / värde ur column 1
     brickIdOne = colOne[0].id;
