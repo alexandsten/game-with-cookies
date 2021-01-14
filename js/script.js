@@ -204,14 +204,18 @@ function endGame() {
     var brickIdThree;
     var brickIdFour;
 
-
+   
 // rätta rader -- vet inte än
-for (let i = 0; i < gameBoardBrick; i++) {         // loop som tar ut id / värde ur rad 1
-    var row = document.getElementById("board").getElementsByClassName("r" + [i] + "");  
-    brickIdOne = row[0].id;
+for (let i = 0; i < 3; i++) {         // loop som tar ut id / värde ur rad 1
+    let r = i;
+    var row = document.getElementById("board").getElementsByClassName("r" + r); 
+    alert("Inne i första delen");
+    for (let i = 0; i < row; i++) {
+    brickIdOne = row[0].id;     // det är ju inte hela raden som har ett id
     brickIdTwo = row[1].id;
     brickIdThree = row[2].id;
     brickIdFour = row[3].id;
+    alert("Inne i andra delen");
     var brickIdOneNum = parseInt(brickIdOne, 10);
     var brickIdTwoNum = parseInt(brickIdTwo, 10);
     var brickIdThreeNum = parseInt(brickIdThree, 10);
@@ -221,7 +225,8 @@ row[i].innerHTML = "&check;";
 totalPoints++;
 totalPointsElem.innerHTML = totalPoints;
 corrRows++; 
-    } 
+   } 
+ }
 }
 
 
