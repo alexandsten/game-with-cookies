@@ -1,6 +1,7 @@
 // Globala konstanter och variabler
 //array för 1-40 brickor
 const allBricks = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37","38", "39", "40"]; 
+var varv = ["1", "2", "3", "4"];        // räknar varv för rader och columner
 var brickElem;   //bricka som flyttas, kan byta class mellan front och back
 var dragBrickElem; //den brickan som blir dragen
 var brickHolder;  //där fyra nya brickor visas
@@ -175,7 +176,7 @@ function finalCounter() {
 function endGame() {     // rätta rader
   
     var corrRows = 0;       // räknar antal korrekta rader för denna spelomgång
-    var varv = ["1", "2", "3", "4"];        // räknar varv för rader och columner
+    
 
     for (let i = 0; i < varv.length; i++) {     // lägger till symboler för felaktiga rader
         scoreMarkR = document.getElementById("r" + varv[i] + "mark");
@@ -250,8 +251,7 @@ function endGame() {     // rätta rader
    newGameBtn.addEventListener("click",startAnotherGame); 
 }
 //================= gör allt redo för en ny omgång ============//
- function startAnotherGame() {       // rensa bort alla resultat och brickor, så att spelaren kan börja om på nytt
-    location.href = "index.html"; 
+ function startAnotherGame() {       // rensa bort alla resultat och brickor, så att spelaren kan börja om på nytt 
    for (let i = 0; i < gameBoardTag.length; i++) { 
     gameBoardTag[i].removeEventListener("drop",brickOverEmpty);
     gameBoardTag[i].removeEventListener("dragover",brickOverEmpty);
@@ -268,5 +268,5 @@ function endGame() {     // rätta rader
         scoreMarkC = document.getElementById("c" + varv[i] + "mark");
         scoreMarkC.innerHTML = "";
     }
-    startGame();
+    messageElem.innerHTML = "";
 }          
