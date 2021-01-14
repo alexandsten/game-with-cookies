@@ -6,7 +6,7 @@ var brickElem;   //bricka som flyttas, kan byta class mellan front och back
 var dragBrickElem; //den brickan som blir dragen
 var brickHolder;  //där fyra nya brickor visas
 var brickHolderCount; // räknar antalet brickor
-var gameBoard;   //alla empty brickor
+var gameBoardEmpty;   //alla empty brickor
 var gameBoardTag; // grabba vid tag
 var markElem;    //markerar om raden är korrekt
 var newGameBtn;      //knapp för nytt spel
@@ -23,7 +23,7 @@ var finalCount;     // nedräkning till endGame
 function init() {
 newGameBtn = document.getElementById("newGameBtn");
 newBricksBtn  = document.getElementById("newBricksBtn");
-gameBoard = document.getElementById("board").
+gameBoardEmpty = document.getElementById("board").
 getElementsByClassName("empty");
 gameBoardBrick = document.getElementById("board").
 getElementsByClassName("brick");
@@ -96,24 +96,19 @@ function addBricks() {
     numberList.splice(r,1); 
     // ta bort classen empty från de nya brickorna
     }
-    for (let i = 0; i < brickHolder.length; i++) {
-        brickHolder[i].classList.remove("empty");
+   var brickHolderTag = document.getElementById("newBricks").getElementsByTagName("img");
+    for (let i = 0; i < brickHolderTag.length; i++) {
+        brickHolderTag[i].classList.remove("empty");
     }
-    for (let i = 0; i < brickHolder.length; i++) {
-        brickHolder[i].classList.remove("empty");
-    } 
-    for (let i = 0; i < brickHolder.length; i++) {
-        brickHolder[i].classList.remove("empty");
-    } 
     brickHolderCount = 4;
 }
 //=========================//
 //======= drag start brick =====//
 function dragStartBrick(e) {
-    for (let i = 0; i < gameBoard.length; i++) {
-        gameBoard[i].addEventListener("dragover",brickOverEmpty);
-        gameBoard[i].addEventListener("drop",brickOverEmpty);
-        gameBoard[i].addEventListener("dragleave",brickLeaveEmpty); 
+    for (let i = 0; i < gameBoardEmpty.length; i++) {
+        gameBoardEmpty[i].addEventListener("dragover",brickOverEmpty);
+        gameBoardEmpty[i].addEventListener("drop",brickOverEmpty);
+        gameBoardEmpty[i].addEventListener("dragleave",brickLeaveEmpty); 
         e.dataTransfer.setData("text",this.src);
         dragBrickElem = this;
     }
@@ -121,10 +116,10 @@ function dragStartBrick(e) {
 // ==========================//
 //======= drag end brick =====//
 function dragEndBrick(e) {
-    for (let i = 0; i < gameBoard.length; i++) {
-        gameBoard[i].removeEventListener("dragover",brickOverEmpty);
-        gameBoard[i].removeEventListener("drop",brickOverEmpty);
-        gameBoard[i].removeEventListener("dragleave",brickLeaveEmpty); 
+    for (let i = 0; i < gameBoardEmpty.length; i++) {
+        gameBoardEmpty[i].removeEventListener("dragover",brickOverEmpty);
+        gameBoardEmpty[i].removeEventListener("drop",brickOverEmpty);
+        gameBoardEmpty[i].removeEventListener("dragleave",brickLeaveEmpty); 
         }
     for (let i = 0; i < brickHolder.length; i++) {
         brickHolder[i].removeEventListener("dragstart",dragStartBrick);
@@ -174,10 +169,7 @@ function finalCounter() {
 }
 // ======== end game ==========//
 function endGame() {     // rätta rader
-  
-    var corrRows = 0;       // räknar antal korrekta rader för denna spelomgång
-    
-
+    var corrRows = 0;       // räknar antal korrekta rader för denna spelomgång  
     for (let i = 0; i < varv.length; i++) {     // lägger till symboler för felaktiga rader
         scoreMarkR = document.getElementById("r" + varv[i] + "mark");
         scoreMarkR.innerHTML = "&cross;";
@@ -259,7 +251,7 @@ function endGame() {     // rätta rader
     gameBoardTag[i].classList.remove("brick");
     gameBoardTag[i].id = "";
     } 
-    for (let i = 0; i < gameBoard.length; i++) {
+    for (let i = 0; i < gameBoardTag.length; i++) {
         gameBoardTag[i].src = "img/empty.png";
     }
     for (let i = 0; i < varv.length; i++) {
