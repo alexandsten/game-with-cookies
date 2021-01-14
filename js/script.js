@@ -78,17 +78,17 @@ function addBricks() {
    //här måste jag få fram 4 front brickor med varsit nummer från arrayen
     newBricksBtn.disabled = true;
     for (let i = 0; i < brickHolder.length; i++) {     
-    var r = Math.floor(numberList.length * Math.random());
-    brickHolder[i].src = "img/" + numberList[r] + ".png";
-    brickHolder[i].addEventListener("dragstart",dragStartBrick);
-    brickHolder[i].addEventListener("dragend",dragEndBrick);
-    brickHolder[i].classList.add("brick");
-    brickHolder[i].draggable = true; 
-    ix = numberList[r];
-    brickHolder[i].id = ix;
-    numberList.splice(r,1); 
-    // ta bort classen empty från de nya brickorna
+        var r = Math.floor(numberList.length * Math.random());
+        brickHolder[i].src = "img/" + numberList[r] + ".png";
+        brickHolder[i].addEventListener("dragstart",dragStartBrick);
+        brickHolder[i].addEventListener("dragend",dragEndBrick);
+        brickHolder[i].classList.add("brick");
+        brickHolder[i].draggable = true; 
+        ix = numberList[r];
+        brickHolder[i].id = ix;
+        numberList.splice(r,1); 
     }
+    // ta bort classen empty från de nya brickorna
     var brickHolderTag = document.getElementById("newBricks").getElementsByTagName("img");
     for (let i = 0; i < brickHolderTag.length; i++) {
         brickHolderTag[i].classList.remove("empty");
