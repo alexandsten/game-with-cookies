@@ -18,7 +18,7 @@ var messageElem;        // meddelande till spelaren
 var numberList;     //alla bricknummer kopieras till denna array
 var finalCount;     // nedräkning till endGame
 
-//========== Init ===============//
+//========== Init ===============// länkar vaiabler till html dokument, lägger till händelsehanterare
 function init() {
 newGameBtn = document.getElementById("newGameBtn");
 newBricksBtn  = document.getElementById("newBricksBtn");
@@ -33,7 +33,7 @@ newGameBtn.addEventListener("click",startGame);
 newBricksBtn.addEventListener("click",addBricks);
 messageElem = document.getElementById("message");
 numberGamesElem = document.getElementById("countGames")
-
+// nollställa nummer och avaktivera knapp för nya brickor
 newBricksBtn.disabled = true;
 totalPoints = 0;
 totalPointsElem.innerHTML = 0;
@@ -75,7 +75,7 @@ function startGame() {
 
 //======= newBricks ========//
 function addBricks() {  
-   //här måste jag få fram 4 front brickor med varsit nummer från arrayen
+   //lägger till brickor med varsit nummer från arrayen
     newBricksBtn.disabled = true;
     for (let i = 0; i < brickHolder.length; i++) {     
         var r = Math.floor(numberList.length * Math.random());
@@ -93,7 +93,7 @@ function addBricks() {
     for (let i = 0; i < brickHolderTag.length; i++) {
         brickHolderTag[i].classList.remove("empty");
     }
-    brickHolderCount = 4;
+    brickHolderCount = 4;       // sätter en räknare för antalet nya brickor 
 }
 //=========================//
 //======= drag start brick =====//
