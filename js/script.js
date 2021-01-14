@@ -172,25 +172,25 @@ function finalCounter() {
     finalCount--;
 }
 // ======== end game ==========//
-function endGame() {
-    // rätta rader
-    var corrRows = 0;
-    var varv = ["1", "2", "3", "4"];
+function endGame() {     // rätta rader
+  
+    var corrRows = 0;       // räknar antal korrekta rader för denna spelomgång
+    var varv = ["1", "2", "3", "4"];        // räknar varv för rader och columner
 
-    for (let i = 0; i < varv.length; i++) {
+    for (let i = 0; i < varv.length; i++) {     // lägger till symboler för felaktiga rader
         scoreMarkR = document.getElementById("r" + varv[i] + "mark");
         scoreMarkR.innerHTML = "&cross;";
         scoreMarkC = document.getElementById("c" + varv[i] + "mark");
         scoreMarkC.innerHTML = "&cross;";
     }
     //rader och kolumner till variabler /*
-    // få fram värde ur brickor (den måste ju gå igenom brickorna för att komma åt värdena, annars stannar det bara på en bricka)
+    // referenser till brickornas värde
     var brickIdOne;
     var brickIdTwo;
     var brickIdThree;
     var brickIdFour;
     var rowDive;
-// för rader
+// rättning för rader
     for (let i = 0; i < varv.length; i++) { 
         rowDive = document.getElementById("board").getElementsByClassName("r" + varv[i] + "");
     for (let i = 0; i < rowDive.length; i++) {         // loop som tar ut id / värde ur rad 1
@@ -211,9 +211,9 @@ function endGame() {
         corrRows++;
         }
     }
+// rättning för columner
     for (let i = 0; i < varv.length; i++) { 
         rowDive = document.getElementById("board").getElementsByClassName("c" + varv[i] + "");
-// för column
     for (let i = 0; i < rowDive.length; i++) {         // loop som tar ut id / värde ur rad 1
         brickIdOne = rowDive[0].id;
         brickIdTwo = rowDive[1].id;
@@ -232,13 +232,13 @@ function endGame() {
         corrRows++;
         }
     }
-// ========================================
+// ======================================== // meddelar om antal korrekta rader
     messageElem.innerHTML = "Du fick " + corrRows + " antal rader korrekt.";
     numberGames++;
     numberGamesElem.innerHTML = numberGames;
     SetKakan(); //==== sätt en cookie för spelets resultat
 }       
-//================
+//================ // skapar en cookie för denna spelomgång
     function SetKakan() {
     let text = totalPoints; // Texten i formuläret
     let textTwo = numberGames; // Texten i formuläret 
