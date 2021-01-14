@@ -178,7 +178,7 @@ function endGame() {     // rätta rader
 // rättning för rader
     for (let i = 0; i < varv.length; i++) { 
         rowDive = document.getElementById("board").getElementsByClassName("r" + varv[i] + "");
-        for (let i = 0; i < rowDive.length; i++) {         // loop som tar ut id / värde ur rad 1
+        for (let i = 0; i < rowDive.length; i++) {         // loop som tar ut id / värde ur rader
             brickIdOne = rowDive[0].id;
             brickIdTwo = rowDive[1].id;
             brickIdThree = rowDive[2].id;
@@ -199,7 +199,7 @@ function endGame() {     // rätta rader
 // rättning för columner
     for (let i = 0; i < varv.length; i++) { 
         rowDive = document.getElementById("board").getElementsByClassName("c" + varv[i] + "");
-        for (let i = 0; i < rowDive.length; i++) {         // loop som tar ut id / värde ur rad 1
+        for (let i = 0; i < rowDive.length; i++) {         // loop som tar ut id / värde ur columner
             brickIdOne = rowDive[0].id;
             brickIdTwo = rowDive[1].id;
             brickIdThree = rowDive[2].id;
