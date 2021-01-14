@@ -48,7 +48,7 @@ function getData() {
 	if (dataStr != null) {
 		let dataArr = dataStr.split("&"); // Array med datan uppdelat
 		let text = decodeURIComponent(dataArr[0]); // Texten
-		let textTwo = decodeURIComponent(dataArr[1]); // Array med färgerna 
+		let textTwo = decodeURIComponent(dataArr[1]); 
         totalPoints = text;
         totalPointsElem.innerHTML = totalPoints;
         numberGames = textTwo;
@@ -170,19 +170,19 @@ function endGame() {     // rätta rader
     }
     //rader och kolumner till variabler /*
     // referenser till brickornas värde
-    var brickIdOne;
-    var brickIdTwo;
-    var brickIdThree;
-    var brickIdFour;
-    var rowDive;
+    var brickIdOne; // 
+    var brickIdTwo; //
+    var brickIdThree;  // variabel som hjälper till att ta fram ID
+    var brickIdFour;    //
+    var boardDive;    // dyker igenom boarden för att ta ut ID nummer som sedan ska jämföras
 // rättning för rader
     for (let i = 0; i < varv.length; i++) { 
-        rowDive = document.getElementById("board").getElementsByClassName("r" + varv[i]);
-        for (let i = 0; i < rowDive.length; i++) {         // loop som tar ut id / värde ur rader
-            brickIdOne = rowDive[0].id;
-            brickIdTwo = rowDive[1].id;
-            brickIdThree = rowDive[2].id;
-            brickIdFour = rowDive[3].id;
+        boardDive = document.getElementById("board").getElementsByClassName("r" + varv[i]);
+        for (let i = 0; i < boardDive.length; i++) {         // loop som tar ut id / värde ur rader
+            brickIdOne = boardDive[0].id;
+            brickIdTwo = boardDive[1].id;
+            brickIdThree = boardDive[2].id;
+            brickIdFour = boardDive[3].id;
         } 
         var brickIdOneNum = parseInt(brickIdOne, 10);
         var brickIdTwoNum = parseInt(brickIdTwo, 10);
@@ -198,12 +198,12 @@ function endGame() {     // rätta rader
     }
 // rättning för columner
     for (let i = 0; i < varv.length; i++) { 
-        rowDive = document.getElementById("board").getElementsByClassName("c" + varv[i]);
-        for (let i = 0; i < rowDive.length; i++) {         // loop som tar ut id / värde ur columner
-            brickIdOne = rowDive[0].id;
-            brickIdTwo = rowDive[1].id;
-            brickIdThree = rowDive[2].id;
-            brickIdFour = rowDive[3].id;
+        boardDive = document.getElementById("board").getElementsByClassName("c" + varv[i]);
+        for (let i = 0; i < boardDive.length; i++) {         // loop som tar ut id / värde ur columner
+            brickIdOne = boardDive[0].id;
+            brickIdTwo = boardDive[1].id;
+            brickIdThree = boardDive[2].id;
+            brickIdFour = boardDive[3].id;
         } 
         var brickIdOneNum = parseInt(brickIdOne, 10);
         var brickIdTwoNum = parseInt(brickIdTwo, 10);
