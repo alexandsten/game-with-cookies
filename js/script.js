@@ -205,33 +205,6 @@ function endGame() {
     var brickIdFour;
 
    
-// rätta rader -- vet inte än
-for (let i = 0; i < 3; i++) {         // loop som tar ut id / värde ur rad 1
-    let r = i;
-    var row = document.getElementById("board").getElementsByClassName("r" + r); 
-    alert("Inne i första delen");
-    for (let i = 0; i < row; i++) {
-    brickIdOne = row[0].id;     // det är ju inte hela raden som har ett id
-    brickIdTwo = row[1].id;
-    brickIdThree = row[2].id;
-    brickIdFour = row[3].id;
-    alert("Inne i andra delen");
-    var brickIdOneNum = parseInt(brickIdOne, 10);
-    var brickIdTwoNum = parseInt(brickIdTwo, 10);
-    var brickIdThreeNum = parseInt(brickIdThree, 10);
-    var brickIdFourNum = parseInt(brickIdFour, 10);
-if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdThreeNum < brickIdFourNum) {
-row[i].innerHTML = "&check;";
-totalPoints++;
-totalPointsElem.innerHTML = totalPoints;
-corrRows++; 
-   } 
- }
-}
-
-
-//
-/*
 // rad 1 ======================================
     for (let i = 0; i < rowOne.length; i++) {         // loop som tar ut id / värde ur rad 1
         brickIdOne = rowOne[0].id;
@@ -368,11 +341,12 @@ if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdT
     totalPointsElem.innerHTML = totalPoints;
     corrRows++;
     }
+// ========================================
     messageElem.innerHTML = "Du fick " + corrRows + " antal rader korrekt.";
-numberGames++;
-numberGamesElem.innerHTML = numberGames;
+    numberGames++;
+    numberGamesElem.innerHTML = numberGames;
     SetKakan(); //==== sätt en cookie för spelets resultat
-}       */
+}       
 //================
     function SetKakan() {
     let text = totalPoints; // Texten i formuläret
@@ -386,7 +360,7 @@ numberGamesElem.innerHTML = numberGames;
 }
 //================= gör allt redo för en ny omgång ============//
 function startAnotherGame() {       // rensa bort alla resultat och brickor, så att spelaren kan börja om på nytt
-   /* location.href = "index.html"; */
+    location.href = "index.html"; 
    for (let i = 0; i < gameBoardTag.length; i++) { 
     gameBoardTag[i].removeEventListener("drop",brickOverEmpty);
     gameBoardTag[i].removeEventListener("dragover",brickOverEmpty);
@@ -405,6 +379,5 @@ function startAnotherGame() {       // rensa bort alla resultat och brickor, så
     col2.innerHTML = "";
     col3.innerHTML = "";
     col4.innerHTML = "";
-    messageElem.innerHTML = "";
+    messageElem.innerHTML = "";   
     }
-}
