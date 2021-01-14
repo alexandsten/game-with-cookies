@@ -20,26 +20,26 @@ var finalCount;     // nedräkning till endGame
 
 //========== Init ===============// länkar vaiabler till html dokument, lägger till händelsehanterare
 function init() {
-newGameBtn = document.getElementById("newGameBtn");
-newBricksBtn  = document.getElementById("newBricksBtn");
-gameBoardEmpty = document.getElementById("board").getElementsByClassName("empty");
-gameBoardBrick = document.getElementById("board").getElementsByClassName("brick");
-gameBoardTag = document.getElementById("board").getElementsByTagName("img");
-brickHolder = document.getElementById("newBricks").getElementsByClassName("empty");
-brickHolderId = document.getElementById("newBricks");
-numberGames = document.getElementById("countGames");
-totalPointsElem = document.getElementById("totPoints");
-newGameBtn.addEventListener("click",startGame);
-newBricksBtn.addEventListener("click",addBricks);
-messageElem = document.getElementById("message");
-numberGamesElem = document.getElementById("countGames")
-// nollställa nummer och avaktivera knapp för nya brickor
-newBricksBtn.disabled = true;
-totalPoints = 0;
-totalPointsElem.innerHTML = 0;
-numberGames = 0;
-numberGamesElem.innerHTML = 0;
-getData();
+    newGameBtn = document.getElementById("newGameBtn");
+    newBricksBtn  = document.getElementById("newBricksBtn");
+    gameBoardEmpty = document.getElementById("board").getElementsByClassName("empty");
+    gameBoardBrick = document.getElementById("board").getElementsByClassName("brick");
+    gameBoardTag = document.getElementById("board").getElementsByTagName("img");
+    brickHolder = document.getElementById("newBricks").getElementsByClassName("empty");
+    brickHolderId = document.getElementById("newBricks");
+    numberGames = document.getElementById("countGames");
+    totalPointsElem = document.getElementById("totPoints");
+    newGameBtn.addEventListener("click",startGame);
+    newBricksBtn.addEventListener("click",addBricks);
+    messageElem = document.getElementById("message");
+    numberGamesElem = document.getElementById("countGames")
+    // nollställa nummer och avaktivera knapp för nya brickor
+    newBricksBtn.disabled = true;
+    totalPoints = 0;
+    totalPointsElem.innerHTML = 0;
+    numberGames = 0;
+    numberGamesElem.innerHTML = 0;
+    getData();
 }
 
 // ==== hämta cookie ===== //
@@ -217,13 +217,13 @@ function endGame() {     // rätta rader
             corrRows++;
         }
     }
-// ======================================== // meddelar om antal korrekta rader
+// ================ // meddelar om antal korrekta rader //==============
     messageElem.innerHTML = "Du fick " + corrRows + " antal rader korrekt.";
     numberGames++;
     numberGamesElem.innerHTML = numberGames;
     SetKakan(); //==== sätt en cookie för spelets resultat
 }       
-//================ // skapar en cookie för denna spelomgång
+//================ // skapar en cookie för denna spelomgång //==============
 function SetKakan() {
     let text = totalPoints; // Texten i formuläret
     let textTwo = numberGames; // Texten i formuläret 
