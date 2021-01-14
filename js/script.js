@@ -203,6 +203,30 @@ function endGame() {
     var brickIdTwo;
     var brickIdThree;
     var brickIdFour;
+
+
+// rätta rader -- vet inte än
+for (let i = 0; i < gameBoardBrick; i++) {         // loop som tar ut id / värde ur rad 1
+    var row = document.getElementById("board").getElementsByClassName("r" + [i] + "");  
+    brickIdOne = row[0].id;
+    brickIdTwo = row[1].id;
+    brickIdThree = row[2].id;
+    brickIdFour = row[3].id;
+    var brickIdOneNum = parseInt(brickIdOne, 10);
+    var brickIdTwoNum = parseInt(brickIdTwo, 10);
+    var brickIdThreeNum = parseInt(brickIdThree, 10);
+    var brickIdFourNum = parseInt(brickIdFour, 10);
+if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdThreeNum < brickIdFourNum) {
+row[i].innerHTML = "&check;";
+totalPoints++;
+totalPointsElem.innerHTML = totalPoints;
+corrRows++; 
+    } 
+}
+
+
+//
+/*
 // rad 1 ======================================
     for (let i = 0; i < rowOne.length; i++) {         // loop som tar ut id / värde ur rad 1
         brickIdOne = rowOne[0].id;
@@ -343,7 +367,7 @@ if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdT
 numberGames++;
 numberGamesElem.innerHTML = numberGames;
     SetKakan(); //==== sätt en cookie för spelets resultat
-}
+}       */
 //================
     function SetKakan() {
     let text = totalPoints; // Texten i formuläret
@@ -378,3 +402,4 @@ function startAnotherGame() {       // rensa bort alla resultat och brickor, så
     col4.innerHTML = "";
     messageElem.innerHTML = "";
     }
+}
