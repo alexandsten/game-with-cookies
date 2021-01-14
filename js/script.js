@@ -8,7 +8,6 @@ var brickHolder;  //där fyra nya brickor visas
 var brickHolderCount; // räknar antalet brickor
 var gameBoardEmpty;   //alla empty brickor
 var gameBoardTag; // grabba vid tag
-var markElem;    //markerar om raden är korrekt
 var newGameBtn;      //knapp för nytt spel
 var newBricksBtn;    //knapp för nya brickor
 var numberGames;     //antal spel
@@ -36,7 +35,6 @@ numberGames = document.getElementById("countGames");
 totalPointsElem = document.getElementById("totPoints");
 newGameBtn.addEventListener("click",startGame);
 newBricksBtn.addEventListener("click",addBricks);
-markElem = document.getElementById("board").
 getElementsByClassName("mark");
 messageElem = document.getElementById("message");
 numberGamesElem = document.getElementById("countGames")
@@ -131,7 +129,7 @@ function dragEndBrick(e) {
 function brickOverEmpty(e) {
     e.preventDefault(); 
     this.style.backgroundColor = "#2FC09F";  
-     if (e.type == "drop") {
+        if (e.type == "drop") {
         this.classList.add("brick");
         this.classList.remove("empty");
         this.src = e.dataTransfer.getData("text"); 
@@ -187,21 +185,21 @@ function endGame() {     // rätta rader
     for (let i = 0; i < varv.length; i++) { 
         rowDive = document.getElementById("board").getElementsByClassName("r" + varv[i] + "");
     for (let i = 0; i < rowDive.length; i++) {         // loop som tar ut id / värde ur rad 1
-        brickIdOne = rowDive[0].id;
-        brickIdTwo = rowDive[1].id;
-        brickIdThree = rowDive[2].id;
-        brickIdFour = rowDive[3].id;
-            } 
-            var brickIdOneNum = parseInt(brickIdOne, 10);
-            var brickIdTwoNum = parseInt(brickIdTwo, 10);
-            var brickIdThreeNum = parseInt(brickIdThree, 10);
-            var brickIdFourNum = parseInt(brickIdFour, 10);
-    if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdThreeNum < brickIdFourNum) {
-        scoreMark = document.getElementById("r" + varv[i] + "mark");
-        scoreMark.innerHTML = "&check;";
-        totalPoints++;
-        totalPointsElem.innerHTML = totalPoints;
-        corrRows++;
+            brickIdOne = rowDive[0].id;
+            brickIdTwo = rowDive[1].id;
+            brickIdThree = rowDive[2].id;
+            brickIdFour = rowDive[3].id;
+        } 
+        var brickIdOneNum = parseInt(brickIdOne, 10);
+        var brickIdTwoNum = parseInt(brickIdTwo, 10);
+        var brickIdThreeNum = parseInt(brickIdThree, 10);
+        var brickIdFourNum = parseInt(brickIdFour, 10);
+        if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdThreeNum < brickIdFourNum) {
+            scoreMark = document.getElementById("r" + varv[i] + "mark");
+            scoreMark.innerHTML = "&check;";
+            totalPoints++;
+            totalPointsElem.innerHTML = totalPoints;
+            corrRows++;
         }
     }
 // rättning för columner
