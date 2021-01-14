@@ -219,8 +219,8 @@ function endGame() {     // rätta rader
     }
 // ================ // meddelar om antal korrekta rader //==============
     messageElem.innerHTML = "Du fick " + corrRows + " antal rader korrekt.";
-    numberGames++;
-    numberGamesElem.innerHTML = numberGames;
+    numberGames++;      // ökar antalet spelomgångar
+    numberGamesElem.innerHTML = numberGames;    
     SetKakan(); //==== sätt en cookie för spelets resultat
 }       
 //================ // skapar en cookie för denna spelomgång //==============
