@@ -223,6 +223,7 @@ function endGame() {
             var brickIdThreeNum = parseInt(brickIdThree, 10);
             var brickIdFourNum = parseInt(brickIdFour, 10);
     if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdThreeNum < brickIdFourNum) {
+        alert("rätt poäng wuhuu");
         row1Mark.innerHTML = "&check;";
         totalPoints++;
         totalPointsElem.innerHTML = totalPoints;
