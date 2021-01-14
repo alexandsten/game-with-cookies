@@ -175,53 +175,63 @@ function finalCounter() {
 function endGame() {
     // rätta rader
     var corrRows = 0;
+    var varv = ["1", "2", "3", "4"];
     //rader och kolumner blir variabler
-    row1 = document.getElementById("r1mark"); row2 = document.getElementById("r2mark");
-    row3 = document.getElementById("r3mark"); row4 = document.getElementById("r4mark");
-    col1 = document.getElementById("c1mark"); col2 = document.getElementById("c2mark");
-    col3 = document.getElementById("c3mark"); col4 = document.getElementById("c4mark");
+    row1Mark = document.getElementById("r1mark"); row2Mark = document.getElementById("r2mark");
+    row3Mark = document.getElementById("r3mark"); row4Mark = document.getElementById("r4mark");
+    col1Mark = document.getElementById("c1mark"); col2Mark = document.getElementById("c2mark");
+    col3Mark = document.getElementById("c3mark"); col4Mark = document.getElementById("c4mark");
     //rader och kolumner får img element från init
-    row1.innerHTML = "&cross;";
-    row2.innerHTML = "&cross;";
-    row3.innerHTML = "&cross;";
-    row4.innerHTML = "&cross;";
-    col1.innerHTML = "&cross;";
-    col2.innerHTML = "&cross;";
-    col3.innerHTML = "&cross;";
-    col4.innerHTML = "&cross;";
+    row1Mark.innerHTML = "&cross;";
+    row2Mark.innerHTML = "&cross;";
+    row3Mark.innerHTML = "&cross;";
+    row4Mark.innerHTML = "&cross;";
+    col1Mark.innerHTML = "&cross;";
+    col2Mark.innerHTML = "&cross;";
+    col3Mark.innerHTML = "&cross;";
+    col4Mark.innerHTML = "&cross;";
     //rader och kolumner till variabler
-     var rowOne = document.getElementById("board").getElementsByClassName("r1");  
-     var rowTwo = document.getElementById("board").getElementsByClassName("r2");
-     var rowThree = document.getElementById("board").getElementsByClassName("r3");
-     var rowFour = document.getElementById("board").getElementsByClassName("r4");
-     var colOne = document.getElementById("board").getElementsByClassName("c1");
-     var colTwo = document.getElementById("board").getElementsByClassName("c2");
-     var colThree = document.getElementById("board").getElementsByClassName("c3");
-     var colFour = document.getElementById("board").getElementsByClassName("c4");
+     var row1 = document.getElementById("board").getElementsByClassName("r1");  
+     var row2 = document.getElementById("board").getElementsByClassName("r2");
+     var row3 = document.getElementById("board").getElementsByClassName("r3");
+     var row4 = document.getElementById("board").getElementsByClassName("r4");
+     var col1 = document.getElementById("board").getElementsByClassName("c1");
+     var col2 = document.getElementById("board").getElementsByClassName("c2");
+     var col3 = document.getElementById("board").getElementsByClassName("c3");
+     var col4 = document.getElementById("board").getElementsByClassName("c4");
     // få fram värde ur brickor (den måste ju gå igenom brickorna för att komma åt värdena, annars stannar det bara på en bricka)
     var brickIdOne;
     var brickIdTwo;
     var brickIdThree;
     var brickIdFour;
+    var rowDive;
 
-   
+    for (let i = 0; i < varv.length; i++) { 
+        rowDive = document.getElementById("board").getElementsByClassName("r" + varv[i] + "");
+        alert("inne i varv");
 // rad 1 ======================================
-    for (let i = 0; i < rowOne.length; i++) {         // loop som tar ut id / värde ur rad 1
-        brickIdOne = rowOne[0].id;
-        brickIdTwo = rowOne[1].id;
-        brickIdThree = rowOne[2].id;
-        brickIdFour = rowOne[3].id;
+    for (let i = 0; i < rowDive.length; i++) {         // loop som tar ut id / värde ur rad 1
+        alert("inne i row dive");
+        brickIdOne = rowDive[0].id;
+        brickIdTwo = rowDive[1].id;
+        brickIdThree = rowDive[2].id;
+        brickIdFour = rowDive[3].id;
+        alert("inne i row dive2");
             } 
             var brickIdOneNum = parseInt(brickIdOne, 10);
             var brickIdTwoNum = parseInt(brickIdTwo, 10);
             var brickIdThreeNum = parseInt(brickIdThree, 10);
             var brickIdFourNum = parseInt(brickIdFour, 10);
     if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdThreeNum < brickIdFourNum) {
-        row1.innerHTML = "&check;";
+        row1Mark.innerHTML = "&check;";
         totalPoints++;
         totalPointsElem.innerHTML = totalPoints;
         corrRows++;
     }
+
+    }
+
+    /* 
 // rad 2 ================
     for (let i = 0; i < rowTwo.length; i++) {         // loop som tar ut id / värde ur rad 2
         brickIdOne = rowTwo[0].id;
@@ -340,7 +350,7 @@ if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdT
     totalPoints++;
     totalPointsElem.innerHTML = totalPoints;
     corrRows++;
-    }
+    } */
 // ========================================
     messageElem.innerHTML = "Du fick " + corrRows + " antal rader korrekt.";
     numberGames++;
@@ -356,10 +366,10 @@ if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdT
     newGameBtn.disabled = false;
     newBricksBtn.disabled = true;
     // ====  nytt spel //
-    newGameBtn.addEventListener("click",startAnotherGame);
+   newGameBtn.addEventListener("click",startAnotherGame); 
 }
 //================= gör allt redo för en ny omgång ============//
-function startAnotherGame() {       // rensa bort alla resultat och brickor, så att spelaren kan börja om på nytt
+ function startAnotherGame() {       // rensa bort alla resultat och brickor, så att spelaren kan börja om på nytt
     location.href = "index.html"; 
    for (let i = 0; i < gameBoardTag.length; i++) { 
     gameBoardTag[i].removeEventListener("drop",brickOverEmpty);
@@ -371,13 +381,13 @@ function startAnotherGame() {       // rensa bort alla resultat och brickor, så
     for (let i = 0; i < gameBoard.length; i++) {
         gameBoardTag[i].src = "img/empty.png";
     }
-    row1.innerHTML = "";
-    row2.innerHTML = "";
-    row3.innerHTML = "";
-    row4.innerHTML = "";
-    col1.innerHTML = "";
-    col2.innerHTML = "";
-    col3.innerHTML = "";
-    col4.innerHTML = "";
+    row1Mark.innerHTML = "";
+    row2Mark.innerHTML = "";
+    row3Mark.innerHTML = "";
+    row4Mark.innerHTML = "";
+    col1Mark.innerHTML = "";
+    col2Mark.innerHTML = "";
+    col3Mark.innerHTML = "";
+    col4Mark.innerHTML = "";
     messageElem.innerHTML = "";   
-    }
+}          
