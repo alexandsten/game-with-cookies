@@ -22,20 +22,15 @@ var finalCount;     // nedräkning till endGame
 function init() {
 newGameBtn = document.getElementById("newGameBtn");
 newBricksBtn  = document.getElementById("newBricksBtn");
-gameBoardEmpty = document.getElementById("board").
-getElementsByClassName("empty");
-gameBoardBrick = document.getElementById("board").
-getElementsByClassName("brick");
-gameBoardTag = document.getElementById("board").
-getElementsByTagName("img");
-brickHolder = document.getElementById("newBricks").
-getElementsByClassName("empty");
+gameBoardEmpty = document.getElementById("board").getElementsByClassName("empty");
+gameBoardBrick = document.getElementById("board").getElementsByClassName("brick");
+gameBoardTag = document.getElementById("board").getElementsByTagName("img");
+brickHolder = document.getElementById("newBricks").getElementsByClassName("empty");
 brickHolderId = document.getElementById("newBricks");
 numberGames = document.getElementById("countGames");
 totalPointsElem = document.getElementById("totPoints");
 newGameBtn.addEventListener("click",startGame);
 newBricksBtn.addEventListener("click",addBricks);
-getElementsByClassName("mark");
 messageElem = document.getElementById("message");
 numberGamesElem = document.getElementById("countGames")
 
@@ -94,7 +89,7 @@ function addBricks() {
     numberList.splice(r,1); 
     // ta bort classen empty från de nya brickorna
     }
-   var brickHolderTag = document.getElementById("newBricks").getElementsByTagName("img");
+    var brickHolderTag = document.getElementById("newBricks").getElementsByTagName("img");
     for (let i = 0; i < brickHolderTag.length; i++) {
         brickHolderTag[i].classList.remove("empty");
     }
@@ -118,10 +113,10 @@ function dragEndBrick(e) {
         gameBoardEmpty[i].removeEventListener("dragover",brickOverEmpty);
         gameBoardEmpty[i].removeEventListener("drop",brickOverEmpty);
         gameBoardEmpty[i].removeEventListener("dragleave",brickLeaveEmpty); 
-        }
+    }
     for (let i = 0; i < brickHolder.length; i++) {
         brickHolder[i].removeEventListener("dragstart",dragStartBrick);
-     }
+    }
 }
 // ==========================//
 // ======== bricka över tom bricka ======//
@@ -129,7 +124,7 @@ function dragEndBrick(e) {
 function brickOverEmpty(e) {
     e.preventDefault(); 
     this.style.backgroundColor = "#2FC09F";  
-        if (e.type == "drop") {
+    if (e.type == "drop") {
         this.classList.add("brick");
         this.classList.remove("empty");
         this.src = e.dataTransfer.getData("text"); 
@@ -138,14 +133,13 @@ function brickOverEmpty(e) {
         dragBrickElem.src = "img/empty.png";
         dragBrickElem.classList.add("empty");
         dragBrickElem.classList.remove("brick");
-     /*   dragBrickElem.draggable = false; */
         //  ta bort dragfunktioner för bricka på spelplan
         for (let i = 0; i < gameBoardBrick.length; i++) { 
             gameBoardBrick[i].removeEventListener("dragover",brickOverEmpty);
             gameBoardBrick[i].removeEventListener("drop",brickOverEmpty);
-            }  
+        }  
         brickHolderCount --;
-       finalCounter();
+        finalCounter();
     }
 }
 //==============================//
@@ -184,7 +178,7 @@ function endGame() {     // rätta rader
 // rättning för rader
     for (let i = 0; i < varv.length; i++) { 
         rowDive = document.getElementById("board").getElementsByClassName("r" + varv[i] + "");
-    for (let i = 0; i < rowDive.length; i++) {         // loop som tar ut id / värde ur rad 1
+        for (let i = 0; i < rowDive.length; i++) {         // loop som tar ut id / värde ur rad 1
             brickIdOne = rowDive[0].id;
             brickIdTwo = rowDive[1].id;
             brickIdThree = rowDive[2].id;
@@ -205,22 +199,22 @@ function endGame() {     // rätta rader
 // rättning för columner
     for (let i = 0; i < varv.length; i++) { 
         rowDive = document.getElementById("board").getElementsByClassName("c" + varv[i] + "");
-    for (let i = 0; i < rowDive.length; i++) {         // loop som tar ut id / värde ur rad 1
-        brickIdOne = rowDive[0].id;
-        brickIdTwo = rowDive[1].id;
-        brickIdThree = rowDive[2].id;
-        brickIdFour = rowDive[3].id;
-            } 
-            var brickIdOneNum = parseInt(brickIdOne, 10);
-            var brickIdTwoNum = parseInt(brickIdTwo, 10);
-            var brickIdThreeNum = parseInt(brickIdThree, 10);
-            var brickIdFourNum = parseInt(brickIdFour, 10);
-    if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdThreeNum < brickIdFourNum) {
-        scoreMark = document.getElementById("c" + varv[i] + "mark");
-        scoreMark.innerHTML = "&check;";
-        totalPoints++;
-        totalPointsElem.innerHTML = totalPoints;
-        corrRows++;
+        for (let i = 0; i < rowDive.length; i++) {         // loop som tar ut id / värde ur rad 1
+            brickIdOne = rowDive[0].id;
+            brickIdTwo = rowDive[1].id;
+            brickIdThree = rowDive[2].id;
+            brickIdFour = rowDive[3].id;
+        } 
+        var brickIdOneNum = parseInt(brickIdOne, 10);
+        var brickIdTwoNum = parseInt(brickIdTwo, 10);
+        var brickIdThreeNum = parseInt(brickIdThree, 10);
+        var brickIdFourNum = parseInt(brickIdFour, 10);
+        if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdThreeNum < brickIdFourNum) {
+            scoreMark = document.getElementById("c" + varv[i] + "mark");
+            scoreMark.innerHTML = "&check;";
+            totalPoints++;
+            totalPointsElem.innerHTML = totalPoints;
+            corrRows++;
         }
     }
 // ======================================== // meddelar om antal korrekta rader
@@ -230,11 +224,11 @@ function endGame() {     // rätta rader
     SetKakan(); //==== sätt en cookie för spelets resultat
 }       
 //================ // skapar en cookie för denna spelomgång
-    function SetKakan() {
+function SetKakan() {
     let text = totalPoints; // Texten i formuläret
     let textTwo = numberGames; // Texten i formuläret 
     let theData = encodeURIComponent(text) + "&" + encodeURIComponent(textTwo);
-        setCookie("kakan",theData,30);	// Datan sparas i en cookie
+    setCookie("kakan",theData,30);	// Datan sparas i en cookie
     newGameBtn.disabled = false;
     newBricksBtn.disabled = true;
     // ====  nytt spel //
@@ -242,12 +236,12 @@ function endGame() {     // rätta rader
 }
 //================= gör allt redo för en ny omgång ============//
  function startAnotherGame() {       // rensa bort alla resultat och brickor, så att spelaren kan börja om på nytt 
-   for (let i = 0; i < gameBoardTag.length; i++) { 
-    gameBoardTag[i].removeEventListener("drop",brickOverEmpty);
-    gameBoardTag[i].removeEventListener("dragover",brickOverEmpty);
-    gameBoardTag[i].classList.add("empty");
-    gameBoardTag[i].classList.remove("brick");
-    gameBoardTag[i].id = "";
+    for (let i = 0; i < gameBoardTag.length; i++) { 
+        gameBoardTag[i].removeEventListener("drop",brickOverEmpty);
+        gameBoardTag[i].removeEventListener("dragover",brickOverEmpty);
+        gameBoardTag[i].classList.add("empty");
+        gameBoardTag[i].classList.remove("brick");
+        gameBoardTag[i].id = "";
     } 
     for (let i = 0; i < gameBoardTag.length; i++) {
         gameBoardTag[i].src = "img/empty.png";
