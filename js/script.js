@@ -176,182 +176,62 @@ function endGame() {
     // rätta rader
     var corrRows = 0;
     var varv = ["1", "2", "3", "4"];
-    //rader och kolumner blir variabler
-    row1Mark = document.getElementById("r1mark"); row2Mark = document.getElementById("r2mark");
-    row3Mark = document.getElementById("r3mark"); row4Mark = document.getElementById("r4mark");
-    col1Mark = document.getElementById("c1mark"); col2Mark = document.getElementById("c2mark");
-    col3Mark = document.getElementById("c3mark"); col4Mark = document.getElementById("c4mark");
-    //rader och kolumner får img element från init
-    row1Mark.innerHTML = "&cross;";
-    row2Mark.innerHTML = "&cross;";
-    row3Mark.innerHTML = "&cross;";
-    row4Mark.innerHTML = "&cross;";
-    col1Mark.innerHTML = "&cross;";
-    col2Mark.innerHTML = "&cross;";
-    col3Mark.innerHTML = "&cross;";
-    col4Mark.innerHTML = "&cross;";
-    //rader och kolumner till variabler
-     var row1 = document.getElementById("board").getElementsByClassName("r1");  
-     var row2 = document.getElementById("board").getElementsByClassName("r2");
-     var row3 = document.getElementById("board").getElementsByClassName("r3");
-     var row4 = document.getElementById("board").getElementsByClassName("r4");
-     var col1 = document.getElementById("board").getElementsByClassName("c1");
-     var col2 = document.getElementById("board").getElementsByClassName("c2");
-     var col3 = document.getElementById("board").getElementsByClassName("c3");
-     var col4 = document.getElementById("board").getElementsByClassName("c4");
+
+    for (let i = 0; i < varv.length; i++) {
+        scoreMarkR = document.getElementById("r" + varv[i] + "mark");
+        scoreMarkR.innerHTML = "&cross;";
+        scoreMarkC = document.getElementById("c" + varv[i] + "mark");
+        scoreMarkC.innerHTML = "&cross;";
+    }
+    //rader och kolumner till variabler /*
     // få fram värde ur brickor (den måste ju gå igenom brickorna för att komma åt värdena, annars stannar det bara på en bricka)
     var brickIdOne;
     var brickIdTwo;
     var brickIdThree;
     var brickIdFour;
     var rowDive;
-
+// för rader
     for (let i = 0; i < varv.length; i++) { 
         rowDive = document.getElementById("board").getElementsByClassName("r" + varv[i] + "");
-        alert("inne i varv");
-// rad 1 ======================================
     for (let i = 0; i < rowDive.length; i++) {         // loop som tar ut id / värde ur rad 1
-        alert("inne i row dive");
         brickIdOne = rowDive[0].id;
         brickIdTwo = rowDive[1].id;
         brickIdThree = rowDive[2].id;
         brickIdFour = rowDive[3].id;
-        alert("inne i row dive2");
             } 
             var brickIdOneNum = parseInt(brickIdOne, 10);
             var brickIdTwoNum = parseInt(brickIdTwo, 10);
             var brickIdThreeNum = parseInt(brickIdThree, 10);
             var brickIdFourNum = parseInt(brickIdFour, 10);
     if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdThreeNum < brickIdFourNum) {
-        alert("rätt poäng wuhuu");
-        row1Mark.innerHTML = "&check;";
+        scoreMark = document.getElementById("r" + varv[i] + "mark");
+        scoreMark.innerHTML = "&check;";
         totalPoints++;
         totalPointsElem.innerHTML = totalPoints;
         corrRows++;
+        }
     }
-
-    }
-
-    /* 
-// rad 2 ================
-    for (let i = 0; i < rowTwo.length; i++) {         // loop som tar ut id / värde ur rad 2
-        brickIdOne = rowTwo[0].id;
-        brickIdTwo = rowTwo[1].id;
-        brickIdThree = rowTwo[2].id;
-        brickIdFour = rowTwo[3].id;
-            }    
+    for (let i = 0; i < varv.length; i++) { 
+        rowDive = document.getElementById("board").getElementsByClassName("c" + varv[i] + "");
+// för column
+    for (let i = 0; i < rowDive.length; i++) {         // loop som tar ut id / värde ur rad 1
+        brickIdOne = rowDive[0].id;
+        brickIdTwo = rowDive[1].id;
+        brickIdThree = rowDive[2].id;
+        brickIdFour = rowDive[3].id;
+            } 
             var brickIdOneNum = parseInt(brickIdOne, 10);
             var brickIdTwoNum = parseInt(brickIdTwo, 10);
             var brickIdThreeNum = parseInt(brickIdThree, 10);
             var brickIdFourNum = parseInt(brickIdFour, 10);
     if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdThreeNum < brickIdFourNum) {
-        row2.innerHTML = "&check;";
+        scoreMark = document.getElementById("c" + varv[i] + "mark");
+        scoreMark.innerHTML = "&check;";
         totalPoints++;
         totalPointsElem.innerHTML = totalPoints;
         corrRows++;
+        }
     }
-// rad 3 ================
-for (let i = 0; i < rowThree.length; i++) {         // loop som tar ut id / värde ur rad 3
-    brickIdOne = rowThree[0].id;
-    brickIdTwo = rowThree[1].id;
-    brickIdThree = rowThree[2].id;
-    brickIdFour = rowThree[3].id;
-        }
-        var brickIdOneNum = parseInt(brickIdOne, 10);
-        var brickIdTwoNum = parseInt(brickIdTwo, 10);
-        var brickIdThreeNum = parseInt(brickIdThree, 10);
-        var brickIdFourNum = parseInt(brickIdFour, 10);
-if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdThreeNum < brickIdFourNum) {
-    row3.innerHTML = "&check;";
-    totalPoints++;
-    totalPointsElem.innerHTML = totalPoints;
-    corrRows++;
-}
-// rad 4 ================
-for (let i = 0; i < rowFour.length; i++) {         // loop som tar ut id / värde ur rad 4
-    brickIdOne = rowFour[0].id;
-    brickIdTwo = rowFour[1].id;
-    brickIdThree = rowFour[2].id;
-    brickIdFour = rowFour[3].id;
-        }
-        var brickIdOneNum = parseInt(brickIdOne, 10);
-        var brickIdTwoNum = parseInt(brickIdTwo, 10);
-        var brickIdThreeNum = parseInt(brickIdThree, 10);
-        var brickIdFourNum = parseInt(brickIdFour, 10);
-if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdThreeNum < brickIdFourNum) {
-    row4.innerHTML = "&check;";
-    totalPoints++;
-    totalPointsElem.innerHTML = totalPoints;
-    corrRows++;
-}
-// column 1 ================
-for (let i = 0; i < colOne.length; i++) {         // loop som tar ut id / värde ur column 1
-    brickIdOne = colOne[0].id;
-    brickIdTwo = colOne[1].id;
-    brickIdThree = colOne[2].id;
-    brickIdFour = colOne[3].id;
-        }
-        var brickIdOneNum = parseInt(brickIdOne, 10);
-        var brickIdTwoNum = parseInt(brickIdTwo, 10);
-        var brickIdThreeNum = parseInt(brickIdThree, 10);
-        var brickIdFourNum = parseInt(brickIdFour, 10);
-if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdThreeNum < brickIdFourNum) {
-    col1.innerHTML = "&check;";
-    totalPoints++;
-    totalPointsElem.innerHTML = totalPoints;
-    corrRows++;
-}
-// column 2 ================
-    for (let i = 0; i < colTwo.length; i++) {         // loop som tar ut id / värde ur column 2
-        brickIdOne = colTwo[0].id;
-        brickIdTwo = colTwo[1].id;
-        brickIdThree = colTwo[2].id;
-        brickIdFour = colTwo[3].id;
-            }
-            var brickIdOneNum = parseInt(brickIdOne, 10);
-            var brickIdTwoNum = parseInt(brickIdTwo, 10);
-            var brickIdThreeNum = parseInt(brickIdThree, 10);
-            var brickIdFourNum = parseInt(brickIdFour, 10);
-    if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdThreeNum < brickIdFourNum) {
-        col2.innerHTML = "&check;";
-        totalPoints++;
-        totalPointsElem.innerHTML = totalPoints;
-        corrRows++;
-    }
-// column 3 ================
-for (let i = 0; i < colThree.length; i++) {         // loop som tar ut id / värde ur column 3
-    brickIdOne = colThree[0].id;
-    brickIdTwo = colThree[1].id;
-    brickIdThree = colThree[2].id;
-    brickIdFour = colThree[3].id;
-        }
-        var brickIdOneNum = parseInt(brickIdOne, 10);
-        var brickIdTwoNum = parseInt(brickIdTwo, 10);
-        var brickIdThreeNum = parseInt(brickIdThree, 10);
-        var brickIdFourNum = parseInt(brickIdFour, 10);
-if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdThreeNum < brickIdFourNum) {
-    col3.innerHTML = "&check;";
-    totalPoints++;
-    totalPointsElem.innerHTML = totalPoints;
-    corrRows++;
-}
-// column 4 ================
-for (let i = 0; i < colFour.length; i++) {         // loop som tar ut id / värde ur column 4
-    brickIdOne = colFour[0].id;
-    brickIdTwo = colFour[1].id;
-    brickIdThree = colFour[2].id;
-    brickIdFour = colFour[3].id;
-        }
-        var brickIdOneNum = parseInt(brickIdOne, 10);
-        var brickIdTwoNum = parseInt(brickIdTwo, 10);
-        var brickIdThreeNum = parseInt(brickIdThree, 10);
-        var brickIdFourNum = parseInt(brickIdFour, 10);
-if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdThreeNum < brickIdFourNum) {
-    col4.innerHTML = "&check;";
-    totalPoints++;
-    totalPointsElem.innerHTML = totalPoints;
-    corrRows++;
-    } */
 // ========================================
     messageElem.innerHTML = "Du fick " + corrRows + " antal rader korrekt.";
     numberGames++;
@@ -382,13 +262,11 @@ if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdT
     for (let i = 0; i < gameBoard.length; i++) {
         gameBoardTag[i].src = "img/empty.png";
     }
-    row1Mark.innerHTML = "";
-    row2Mark.innerHTML = "";
-    row3Mark.innerHTML = "";
-    row4Mark.innerHTML = "";
-    col1Mark.innerHTML = "";
-    col2Mark.innerHTML = "";
-    col3Mark.innerHTML = "";
-    col4Mark.innerHTML = "";
-    messageElem.innerHTML = "";   
+    for (let i = 0; i < varv.length; i++) {
+        scoreMarkR = document.getElementById("r" + varv[i] + "mark");
+        scoreMarkR.innerHTML = "";
+        scoreMarkC = document.getElementById("c" + varv[i] + "mark");
+        scoreMarkC.innerHTML = "";
+    }
+    startGame();
 }          
