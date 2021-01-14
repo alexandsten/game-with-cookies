@@ -59,8 +59,8 @@ function getData() {
         totalPointsElem.innerHTML = totalPoints;
         numberGames = textTwo;
         numberGamesElem.innerHTML = numberGames;
-		}
 	}
+}
  // End getData
 
 //==============================//
