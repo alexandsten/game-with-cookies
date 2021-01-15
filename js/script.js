@@ -184,11 +184,12 @@ function endGame() {     // rätta rader
             brickIdThree = boardDive[2].id;
             brickIdFour = boardDive[3].id;
         } 
-        var brickIdOneNum = parseInt(brickIdOne, 10);
+        var brickIdOneNum = parseInt(brickIdOne, 10);   // gör siffrorna till nummervärde
         var brickIdTwoNum = parseInt(brickIdTwo, 10);
         var brickIdThreeNum = parseInt(brickIdThree, 10);
         var brickIdFourNum = parseInt(brickIdFour, 10);
-        if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdThreeNum < brickIdFourNum) {
+        // kolla om raden har stigande nummer
+        if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdThreeNum < brickIdFourNum) { 
             scoreMark = document.getElementById("r" + varv[i] + "mark");
             scoreMark.innerHTML = "&check;";
             totalPoints++;
@@ -205,11 +206,12 @@ function endGame() {     // rätta rader
             brickIdThree = boardDive[2].id;
             brickIdFour = boardDive[3].id;
         } 
-        var brickIdOneNum = parseInt(brickIdOne, 10);
+        var brickIdOneNum = parseInt(brickIdOne, 10);   // gör siffrorna till nummervärde
         var brickIdTwoNum = parseInt(brickIdTwo, 10);
         var brickIdThreeNum = parseInt(brickIdThree, 10);
         var brickIdFourNum = parseInt(brickIdFour, 10);
-        if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdThreeNum < brickIdFourNum) {
+        // kolla om columnen har stigande nummer
+        if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdThreeNum < brickIdFourNum) { 
             scoreMark = document.getElementById("c" + varv[i] + "mark");
             scoreMark.innerHTML = "&check;";
             totalPoints++;
