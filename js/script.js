@@ -237,7 +237,7 @@ function SetKakan() {
    newGameBtn.addEventListener("click",startAnotherGame); 
 }
 //================= gör allt redo för en ny omgång ============//
- function startAnotherGame() {       // rensa bort alla resultat och brickor, så att spelaren kan börja om på nytt 
+function startAnotherGame() {       // rensa bort alla resultat och brickor, så att spelaren kan börja om på nytt 
     for (let i = 0; i < gameBoardTag.length; i++) { 
         gameBoardTag[i].removeEventListener("drop",brickOverEmpty);
         gameBoardTag[i].removeEventListener("dragover",brickOverEmpty);
