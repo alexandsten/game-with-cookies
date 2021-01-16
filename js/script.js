@@ -44,8 +44,8 @@ function init() {
 
 // ==== hämta cookie ===== //
 function getData() {    
-	let dataStr = getCookie("kakan"); // Cookiens innehåll, om den finns, annars null
-	if (dataStr != null) {
+	let dataStr = getCookie("kakan"); // Cookiens innehåll
+	if (dataStr != null) {  
 		let dataArr = dataStr.split("&"); // Array med texten som hämtas uppdelat
 		let text = decodeURIComponent(dataArr[0]); // Första delen av texten som hämtas från kakan
 		let textTwo = decodeURIComponent(dataArr[1]); // Andra delen av texten som hämtas från av kakan
@@ -77,13 +77,13 @@ function addBricks() {
    //lägger till brickor med varsit nummer från arrayen
     newBricksBtn.disabled = true;
     for (let i = 0; i < brickHolder.length; i++) {     
-        var r = Math.floor(numberList.length * Math.random());
-        brickHolder[i].src = "img/" + numberList[r] + ".png";
-        brickHolder[i].addEventListener("dragstart",dragStartBrick);
-        brickHolder[i].addEventListener("dragend",dragEndBrick);
-        brickHolder[i].classList.add("brick");
+        var r = Math.floor(numberList.length * Math.random());      // väljer ett slumpmässigt tal som brickan ska få
+        brickHolder[i].src = "img/" + numberList[r] + ".png";   // ger brickan sitt värde (i form av bild)
+        brickHolder[i].addEventListener("dragstart",dragStartBrick);    // händelsehanterare till bricka
+        brickHolder[i].addEventListener("dragend",dragEndBrick);        //
+        brickHolder[i].classList.add("brick");      // ger bricka classen "brick"
         brickHolder[i].draggable = true; 
-        ix = numberList[r];
+        ix = numberList[r];     // 
         brickHolder[i].id = ix;
         numberList.splice(r,1); 
     }
