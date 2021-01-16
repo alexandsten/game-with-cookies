@@ -66,10 +66,9 @@ window.addEventListener("load",init); 		// Se till att init aktiveras då sidan 
 function startGame() {
     newGameBtn.disabled = true;
     newBricksBtn.disabled = false;
-    numberList = allBricks.slice(0);
-    console.log(numberList);
-    brickHolderCount = 0;
-    finalCount = 15;
+    numberList = allBricks.slice(0);    // kopiera array för brickor
+    brickHolderCount = 0;   // ställ in brick räknare
+    finalCount = 15;    // ställ in räknare inför endGame
 }
 //===========================//
 
@@ -138,7 +137,7 @@ function brickOverEmpty(e) {
             gameBoardBrick[i].removeEventListener("dragover",brickOverEmpty);
             gameBoardBrick[i].removeEventListener("drop",brickOverEmpty);
         }  
-        brickHolderCount --;
+        brickHolderCount --;    // ta bort 1 från brickräknare
         finalCounter();
     }
 }
@@ -150,14 +149,14 @@ function brickLeaveEmpty(e) {
 }
 //===============================
 //===== counters =============
-function finalCounter() {  
-    if (brickHolderCount<1) {
+function finalCounter() {  // nedräkning inför endGame funktion
+    if (brickHolderCount<1) {       // om brickräknare är mindre än 1 blir newBricks knapp tryckbar
         newBricksBtn.disabled = false;
     }
-    if (finalCount<1) {
+    if (finalCount<1) {     // om finalCount är mindre än 1 startar endGame
         endGame();
     }
-    finalCount--;
+    finalCount--;       // annars räknar finalCount ned med 1
 }
 // ======== end game ==========//
 function endGame() {     // rätta rader
