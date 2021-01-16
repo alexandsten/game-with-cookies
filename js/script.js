@@ -43,16 +43,16 @@ function init() {
 }
 
 // ==== hämta cookie ===== //
-function getData() {
+function getData() {    
 	let dataStr = getCookie("kakan"); // Cookiens innehåll, om den finns, annars null
 	if (dataStr != null) {
-		let dataArr = dataStr.split("&"); // Array med datan uppdelat
-		let text = decodeURIComponent(dataArr[0]); // Texten
-		let textTwo = decodeURIComponent(dataArr[1]); 
-        totalPoints = text;
-        totalPointsElem.innerHTML = totalPoints;
-        numberGames = textTwo;
-        numberGamesElem.innerHTML = numberGames;
+		let dataArr = dataStr.split("&"); // Array med texten som hämtas uppdelat
+		let text = decodeURIComponent(dataArr[0]); // Första delen av texten som hämtas från kakan
+		let textTwo = decodeURIComponent(dataArr[1]); // Andra delen av texten som hämtas från av kakan
+        totalPoints = text;     // texten från kakan blir totalpoints
+        totalPointsElem.innerHTML = totalPoints; //
+        numberGames = textTwo;  // texten från kakan blir numberGames
+        numberGamesElem.innerHTML = numberGames;    // texten från kakan blir numberGames
 	}
 }
  // End getData
@@ -99,40 +99,40 @@ function addBricks() {
 //======= drag start brick =====//
 function dragStartBrick(e) {
     for (let i = 0; i < gameBoardEmpty.length; i++) {
-        gameBoardEmpty[i].addEventListener("dragover",brickOverEmpty);
-        gameBoardEmpty[i].addEventListener("drop",brickOverEmpty);
-        gameBoardEmpty[i].addEventListener("dragleave",brickLeaveEmpty); 
-        e.dataTransfer.setData("text",this.src);
-        dragBrickElem = this;
+        gameBoardEmpty[i].addEventListener("dragover",brickOverEmpty);  // lägg till händelsehanterare på de tomma empty brickor på boarden
+        gameBoardEmpty[i].addEventListener("drop",brickOverEmpty);  //
+        gameBoardEmpty[i].addEventListener("dragleave",brickLeaveEmpty);   //
+        e.dataTransfer.setData("text",this.src);        // för över bild som dras
+        dragBrickElem = this;       // spara denna bricka i variabel, för senare bruk
     }
 }
 // ==========================//
 //======= drag end brick =====//
 function dragEndBrick(e) {
     for (let i = 0; i < gameBoardEmpty.length; i++) {
-        gameBoardEmpty[i].removeEventListener("dragover",brickOverEmpty);
-        gameBoardEmpty[i].removeEventListener("drop",brickOverEmpty);
-        gameBoardEmpty[i].removeEventListener("dragleave",brickLeaveEmpty); 
-    }
-    for (let i = 0; i < brickHolder.length; i++) {
+        gameBoardEmpty[i].removeEventListener("dragover",brickOverEmpty);   // ta bort händelsehanterare på empty brickor i boarden
+        gameBoardEmpty[i].removeEventListener("drop",brickOverEmpty);       //
+        gameBoardEmpty[i].removeEventListener("dragleave",brickLeaveEmpty);     //
+    }   
+    for (let i = 0; i < brickHolder.length; i++) {  // ta bort händelsehanterare på brickholder
         brickHolder[i].removeEventListener("dragstart",dragStartBrick);
     }
 }
 // ==========================//
-// ======== bricka över tom bricka ======//
+// ======== bricka över tom bricka (empty) ======//
 
 function brickOverEmpty(e) {
     e.preventDefault(); 
-    this.style.backgroundColor = "#2FC09F";  
-    if (e.type == "drop") {
-        this.classList.add("brick");
-        this.classList.remove("empty");
-        this.src = e.dataTransfer.getData("text"); 
-        this.style.backgroundColor = "";
-        this.id = dragBrickElem.id;
-        dragBrickElem.src = "img/empty.png";
-        dragBrickElem.classList.add("empty");
-        dragBrickElem.classList.remove("brick");
+    this.style.backgroundColor = "#2FC09F";     // byt färg
+    if (e.type == "drop") {             // om brickan släpps
+        this.classList.add("brick");        // lägg till classen brick
+        this.classList.remove("empty");     //  ta bort classen empty
+        this.src = e.dataTransfer.getData("text");      // för över bild
+        this.style.backgroundColor = "";        
+        this.id = dragBrickElem.id;             // för över id
+        dragBrickElem.src = "img/empty.png";        // byt bild till tom ruta på brickan som började dras
+        dragBrickElem.classList.add("empty");       // brickan som började dras får class empty
+        dragBrickElem.classList.remove("brick");    //brickan som började dras förlorar sin brick class
         //  ta bort dragfunktioner för bricka på spelplan
         for (let i = 0; i < gameBoardBrick.length; i++) { 
             gameBoardBrick[i].removeEventListener("dragover",brickOverEmpty);
