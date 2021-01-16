@@ -84,8 +84,8 @@ function addBricks() {
         brickHolder[i].classList.add("brick");      // ger bricka classen "brick"
         brickHolder[i].draggable = true; 
         ix = numberList[r];     // 
-        brickHolder[i].id = ix;
-        numberList.splice(r,1); 
+        brickHolder[i].id = ix; // ger brickan ett ID (som kommer användas för att "rätta rader")
+        numberList.splice(r,1);     // ta bort detta nummer, så brickor inte får samma nr
     }
     // ta bort classen empty från de nya brickorna
     var brickHolderTag = document.getElementById("newBricks").getElementsByTagName("img");
@@ -145,7 +145,7 @@ function brickOverEmpty(e) {
 //========== brick leave empty =====//
 
 function brickLeaveEmpty(e) {
-    this.style.backgroundColor = "";
+    this.style.backgroundColor = "";    // ta bort bakgrundsfärg
 }
 //===============================
 //===== counters =============
@@ -178,15 +178,15 @@ function endGame() {     // rätta rader
     for (let i = 0; i < varv.length; i++) { 
         boardDive = document.getElementById("board").getElementsByClassName("r" + varv[i]);
         for (let i = 0; i < boardDive.length; i++) {         // loop som tar ut id / värde ur rader
-            brickIdOne = boardDive[0].id;
-            brickIdTwo = boardDive[1].id;
-            brickIdThree = boardDive[2].id;
-            brickIdFour = boardDive[3].id;
+            brickIdOne = boardDive[0].id;       //
+            brickIdTwo = boardDive[1].id;       //  variabler som har brickans id som värde
+            brickIdThree = boardDive[2].id;       //
+            brickIdFour = boardDive[3].id;       //
         } 
-        var brickIdOneNum = parseInt(brickIdOne, 10);   // gör siffrorna till nummervärde
-        var brickIdTwoNum = parseInt(brickIdTwo, 10);
-        var brickIdThreeNum = parseInt(brickIdThree, 10);
-        var brickIdFourNum = parseInt(brickIdFour, 10);
+        var brickIdOneNum = parseInt(brickIdOne, 10);   // gör siffrorna till nummervärde, så de kan jämföras
+        var brickIdTwoNum = parseInt(brickIdTwo, 10);   //
+        var brickIdThreeNum = parseInt(brickIdThree, 10);   //
+        var brickIdFourNum = parseInt(brickIdFour, 10); //
         // kolla om raden har stigande nummer
         if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdThreeNum < brickIdFourNum) { 
             scoreMark = document.getElementById("r" + varv[i] + "mark");
@@ -201,11 +201,11 @@ function endGame() {     // rätta rader
         boardDive = document.getElementById("board").getElementsByClassName("c" + varv[i]);
         for (let i = 0; i < boardDive.length; i++) {         // loop som tar ut id / värde ur columner
             brickIdOne = boardDive[0].id;
-            brickIdTwo = boardDive[1].id;
+            brickIdTwo = boardDive[1].id;      //  variabler som har brickans id som värde
             brickIdThree = boardDive[2].id;
             brickIdFour = boardDive[3].id;
         } 
-        var brickIdOneNum = parseInt(brickIdOne, 10);   // gör siffrorna till nummervärde
+        var brickIdOneNum = parseInt(brickIdOne, 10);   // gör siffrorna till nummervärde, så de kan jämföras
         var brickIdTwoNum = parseInt(brickIdTwo, 10);
         var brickIdThreeNum = parseInt(brickIdThree, 10);
         var brickIdFourNum = parseInt(brickIdFour, 10);
