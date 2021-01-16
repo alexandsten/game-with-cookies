@@ -232,7 +232,7 @@ function SetKakan() {
     setCookie("kakan",theData,30);	// Datan sparas i en cookie
     newGameBtn.disabled = false;
     newBricksBtn.disabled = true;
-    // ====  nytt spel //
+    // ====  nytt spel // newGameBtn får ny händelsehanterare för ny spelomgång
    newGameBtn.addEventListener("click",startAnotherGame); 
 }
 //================= gör allt redo för en ny omgång ============//
@@ -244,10 +244,10 @@ function startAnotherGame() {       // rensa bort alla resultat och brickor, så
         gameBoardTag[i].classList.remove("brick");
         gameBoardTag[i].id = "";
     } 
-    for (let i = 0; i < gameBoardTag.length; i++) {
+    for (let i = 0; i < gameBoardTag.length; i++) { // rensa spelbrickornas bilder
         gameBoardTag[i].src = "img/empty.png";
     }
-    for (let i = 0; i < varv.length; i++) {
+    for (let i = 0; i < varv.length; i++) {     // rensa score marks
         scoreMarkR = document.getElementById("r" + varv[i] + "mark");
         scoreMarkR.innerHTML = "";
         scoreMarkC = document.getElementById("c" + varv[i] + "mark");
