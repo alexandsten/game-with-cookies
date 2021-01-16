@@ -189,8 +189,8 @@ function endGame() {     // rätta rader
         var brickIdFourNum = parseInt(brickIdFour, 10); //
         // kolla om raden har stigande nummer
         if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdThreeNum < brickIdFourNum) { 
-            scoreMark = document.getElementById("r" + varv[i] + "mark");
-            scoreMark.innerHTML = "&check;";
+            scoreMark = document.getElementById("r" + varv[i] + "mark");    // score mark för denna rad
+            scoreMark.innerHTML = "&check;";    // check för att visa att spelaren har en korrekt rad
             totalPoints++;
             totalPointsElem.innerHTML = totalPoints;
             corrRows++;
@@ -211,8 +211,8 @@ function endGame() {     // rätta rader
         var brickIdFourNum = parseInt(brickIdFour, 10);
         // kolla om columnen har stigande nummer
         if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdThreeNum < brickIdFourNum) { 
-            scoreMark = document.getElementById("c" + varv[i] + "mark");
-            scoreMark.innerHTML = "&check;";
+            scoreMark = document.getElementById("c" + varv[i] + "mark");  // score mark för denna column
+            scoreMark.innerHTML = "&check;";   // check för att visa att spelaren har en korrekt column
             totalPoints++;
             totalPointsElem.innerHTML = totalPoints;
             corrRows++;
