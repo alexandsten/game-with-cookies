@@ -176,7 +176,7 @@ function endGame() {     // rätta rader
     var boardDive;    // dyker igenom boarden för att ta ut ID nummer som sedan ska jämföras
 // rättning för rader
     for (let i = 0; i < varv.length; i++) { 
-        boardDive = document.getElementById("board").getElementsByClassName("r" + varv[i]);
+        boardDive = document.getElementById("board").getElementsByClassName("r" + varv[i]);    // boardDive går igenom alla 4 rows
         for (let i = 0; i < boardDive.length; i++) {         // loop som tar ut id / värde ur rader
             brickIdOne = boardDive[0].id;       //
             brickIdTwo = boardDive[1].id;       //  variabler som har brickans id som värde
@@ -198,7 +198,7 @@ function endGame() {     // rätta rader
     }
 // rättning för columner
     for (let i = 0; i < varv.length; i++) { 
-        boardDive = document.getElementById("board").getElementsByClassName("c" + varv[i]);
+        boardDive = document.getElementById("board").getElementsByClassName("c" + varv[i]);     // boardDive går igenom alla 4 columner
         for (let i = 0; i < boardDive.length; i++) {         // loop som tar ut id / värde ur columner
             brickIdOne = boardDive[0].id;
             brickIdTwo = boardDive[1].id;      //  variabler som har brickans id som värde
