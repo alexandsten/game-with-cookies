@@ -39,7 +39,7 @@ function init() {
     totalPointsElem.innerHTML = 0;
     numberGames = 0;
     numberGamesElem.innerHTML = 0;
-    getData();
+    getData();      // hämta cookie
 }
 
 // ==== hämta cookie ===== //
