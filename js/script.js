@@ -219,7 +219,7 @@ function endGame() {     // rätta rader
         }
     }
 // ================ // meddelar om antal korrekta rader //==============
-    messageElem.innerHTML = "Du fick " + corrRows + " antal rader/columner korrekt.";
+    messageElem.innerHTML = "Du fick " + corrRows + " antal rader/kolumner korrekt.";
     numberGames++;      // ökar antalet spelomgångar
     numberGamesElem.innerHTML = numberGames;    
     SetKakan(); //==== sätt en cookie för spelets resultat
