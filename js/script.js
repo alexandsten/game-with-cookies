@@ -163,8 +163,10 @@ function endGame() {     // rätta rader
     var corrRows = 0;       // räknar antal korrekta rader för denna spelomgång  
     for (let i = 0; i < varv.length; i++) {     // lägger till symboler för felaktiga rader
         scoreMarkR = document.getElementById("r" + varv[i] + "mark");
+        scoreMarkR.style.color = "#FF0000";    // gör kryss röda
         scoreMarkR.innerHTML = "&cross;";
         scoreMarkC = document.getElementById("c" + varv[i] + "mark");
+        scoreMarkC.style.color = "#FF0000";   // gör kryss röda
         scoreMarkC.innerHTML = "&cross;";
     }
     //rader och kolumner till variabler /*
@@ -190,6 +192,7 @@ function endGame() {     // rätta rader
         // kolla om raden har stigande nummer
         if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdThreeNum < brickIdFourNum) { 
             scoreMark = document.getElementById("r" + varv[i] + "mark");    // score mark för denna rad
+            scoreMark.style.color = "#008000";  // gör check grön
             scoreMark.innerHTML = "&check;";    // check för att visa att spelaren har en korrekt rad
             totalPoints++;
             totalPointsElem.innerHTML = totalPoints;
@@ -212,6 +215,7 @@ function endGame() {     // rätta rader
         // kolla om columnen har stigande nummer
         if (brickIdOneNum < brickIdTwoNum && brickIdTwoNum < brickIdThreeNum && brickIdThreeNum < brickIdFourNum) { 
             scoreMark = document.getElementById("c" + varv[i] + "mark");  // score mark för denna column
+            scoreMark.style.color = "#008000";   // gör check grön
             scoreMark.innerHTML = "&check;";   // check för att visa att spelaren har en korrekt column
             totalPoints++;
             totalPointsElem.innerHTML = totalPoints;
